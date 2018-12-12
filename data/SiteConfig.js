@@ -20,7 +20,7 @@ module.exports = {
   userLinks: [
     {
       label: "GitHub",
-      url: "https://github.com/turinproject/",
+      url: "https://github.com/turinproject/plugins-repository",
       iconClassName: "fa fa-github"
     },
     {
