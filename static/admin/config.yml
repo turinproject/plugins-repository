@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway # Refer to https://www.netlifycms.org/docs/authentication-backends/ for auth backend list and instructions
+  name: github
+  repo: turinproject/plugins-repository
 
 media_folder: static/assets
 public_folder: assets
