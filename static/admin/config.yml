@@ -8,7 +8,7 @@ public_folder: assets
 collections:
   - name: plugin
     label: "Plugins"
-    folder: "content/plugins/submitted"
+    folder: "content"
     create: true
     fields:
       - {label: "Title", name: "title", widget: "string"}

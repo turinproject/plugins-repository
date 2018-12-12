@@ -4,14 +4,14 @@ import Layout from "../layout";
 import About from "../components/About";
 import config from "../../data/SiteConfig";
 
-class AboutPage extends Component {
+class SubmitPlugin extends Component {
   render() {
     return (
-      <Layout location={this.props.location} title="About">
-        <div className="about-container">
+      <Layout location={this.props.location} title="Submit Plugin">
+        <div className="submit-plugin-container">
           <Helmet>
-            <title>{`About | ${config.siteTitle}`}</title>
-            <link rel="canonical" href={`${config.siteUrl}/about/`} />
+            <title>{`Submit Plugin | ${config.siteTitle}`}</title>
+            <link rel="canonical" href={`${config.siteUrl}/admin/`} />
           </Helmet>
           <About />
         </div>
@@ -20,4 +20,4 @@ class AboutPage extends Component {
   }
 }
 
-export default AboutPage;
+export default SubmitPlugin;

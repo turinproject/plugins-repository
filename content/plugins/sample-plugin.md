@@ -2,7 +2,7 @@
 title: "Sample Plugin"
 cover: "8.jpg"
 date: "2017-01-01"
-category: "tech"
+category: "commands"
 tags:
     - programming
     - stuff
