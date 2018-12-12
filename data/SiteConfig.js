@@ -3,7 +3,7 @@ module.exports = {
   siteTitleShort: "Plugins", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   siteTitleAlt: "Plugins Repository", // Alternative site title for SEO.
   siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
-  siteUrl: "https://turin-project.github.io", // Domain of your website without pathPrefix.
+  siteUrl: "https://turinproject.github.io", // Domain of your website without pathPrefix.
   pathPrefix: "/plugins-repository", // Prefixes all links. For cases when deployed to example.github.io/gatsby-material-starter/.
   fixedFooter: false, // Whether the footer component is fixed, i.e. always visible
   siteDescription: "A plugin repository for Avogadro 2.", // Website description used for RSS feeds/meta description tag.
@@ -20,19 +20,14 @@ module.exports = {
   userLinks: [
     {
       label: "GitHub",
-      url: "https://github.com/Vagr9K/gatsby-material-starter",
+      url: "https://github.com/turinproject/",
       iconClassName: "fa fa-github"
     },
     {
-      label: "Twitter",
-      url: "https://twitter.com/Vagr9K",
-      iconClassName: "fa fa-twitter"
+      label: "Slack",
+      url: "https://openchemistry.slack.com",
+      iconClassName: "fa fa-slack"
     },
-    {
-      label: "Email",
-      url: "mailto:vagr9k@gmail.com",
-      iconClassName: "fa fa-envelope"
-    }
   ],
-  copyright: "Copyright © 2017. Material User" // Copyright string for the footer of the website and RSS feed.
+  copyright: "Copyright © 2018." // Copyright string for the footer of the website and RSS feed.
 };

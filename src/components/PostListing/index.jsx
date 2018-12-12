@@ -1,4 +1,5 @@
 import React from "react";
+import SearchBar from "../SearchBar";
 import PostPreview from "../PostPreview";
 
 class PostListing extends React.Component {
@@ -21,6 +22,7 @@ class PostListing extends React.Component {
     const postList = this.getPostList();
     return (
       <div className="md-grid md-grid--no-spacing md-cell--middle">
+        <SearchBar />
         <div className="md-grid md-cell--8 mobile-fix">
           {postList.map(post => (
             <PostPreview key={post.title} postInfo={post} />

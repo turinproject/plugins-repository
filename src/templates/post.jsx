@@ -5,9 +5,8 @@ import Card from "react-md/lib/Cards";
 import CardText from "react-md/lib/Cards/CardText";
 import Layout from "../layout";
 import UserInfo from "../components/UserInfo";
-import Disqus from "../components/Disqus";
 import PostTags from "../components/PostTags";
-import PostCover from "../components/PostCover";
+// import PostCover from "../components/PostCover";
 import PostInfo from "../components/PostInfo";
 import SocialLinks from "../components/SocialLinks";
 import PostSuggestions from "../components/PostSuggestions";
@@ -64,11 +63,6 @@ export default class PostTemplate extends React.Component {
             <link rel="canonical" href={`${config.siteUrl}${post.id}`} />
           </Helmet>
           <SEO postPath={slug} postNode={postNode} postSEO />
-          <PostCover
-            postNode={postNode}
-            coverHeight={coverHeight}
-            coverClassName="md-grid md-cell--9 post-cover"
-          />
           <div
             className={`md-grid md-cell--9 post-page-contents mobile-fix ${postOverlapClass}`}
           >
@@ -92,7 +86,6 @@ export default class PostTemplate extends React.Component {
               config={config}
               expanded={expanded}
             />
-            <Disqus postNode={postNode} expanded={expanded} />
           </div>
 
           <PostSuggestions postNode={postNode} />

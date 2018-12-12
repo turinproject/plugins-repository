@@ -3,7 +3,7 @@
   "description": "Frontend for Avogadro's Plugin Repository",
   "version": "0.0.1",
   "author": "Will Gladstone <will@jollypebble.com>",
-  "repository": "https://gitlab.com/turin-project/plugins-repository",
+  "repository": "https://gitlab.com/turinproject/plugins-repository",
   "dependencies": {
     "babel-eslint": "^9.0.0",
     "eslint-config-react-app": "^3.0.5",
