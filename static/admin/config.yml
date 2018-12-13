@@ -6,15 +6,15 @@ media_folder: static/assets
 public_folder: assets
 
 collections:
-  - name: plugin
+  - name: plugins
     label: "Plugins"
-    folder: "content"
+    folder: "content/plugins/submitted"
     create: true
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Logo", name: "logo", widget: "image"}
       - {label: "Slug", name: "slug", widget: "string"}
-      - {label: "Category", name: "category", widget: "string"}
+      - {label: "Category", name: "category", widget: widget: "select", options: ["generators", "commands", "data", "force-fields"]}
       - {label: "Tags", name: "tags", widget: "list"}
       - {label: "Description", name: "body", widget: "markdown"}

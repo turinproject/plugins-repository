@@ -124,7 +124,7 @@ module.exports = {
         setup(ref) {
           const ret = ref.query.site.siteMetadata.rssMetadata;
           ret.allMarkdownRemark = ref.query.allMarkdownRemark;
-          ret.generator = "GatsbyJS Material Starter";
+          ret.generator = "Turin Project Plugins Repository";
           return ret;
         },
         query: `
@@ -173,7 +173,7 @@ module.exports = {
                     fields { slug }
                     frontmatter {
                       title
-                      cover
+                      logo
                       date
                       category
                       tags

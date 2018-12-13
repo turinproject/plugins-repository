@@ -13,9 +13,9 @@ import PostSuggestions from "../components/PostSuggestions";
 import SEO from "../components/SEO";
 import config from "../../data/SiteConfig";
 import "./b16-tomorrow-dark.css";
-import "./post.scss";
+import "./plugin.scss";
 
-export default class PostTemplate extends React.Component {
+export default class PluginTemplate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -96,14 +96,14 @@ export default class PostTemplate extends React.Component {
 }
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query PluginBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       timeToRead
       excerpt
       frontmatter {
         title
-        cover
+        logo
         date
         category
         tags

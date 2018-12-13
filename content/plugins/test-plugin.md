@@ -1,8 +1,8 @@
 ---
 title: "Test Plugin"
-cover: ""
+logo: ""
 date: "2017-01-01"
-category: "generators"
+category: generators
 tags:
     - programming
     - stuff

@@ -99,6 +99,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const postPage = path.resolve("src/templates/post.jsx");
+    const pluginPage = path.resolve("src/templates/plugin.jsx");
     const tagPage = path.resolve("src/templates/tag.jsx");
     const categoryPage = path.resolve("src/templates/category.jsx");
     resolve(
@@ -142,7 +143,7 @@ exports.createPages = ({ graphql, actions }) => {
 
           createPage({
             path: edge.node.fields.slug,
-            component: postPage,
+            component: pluginPage,
             context: {
               slug: edge.node.fields.slug
             }
