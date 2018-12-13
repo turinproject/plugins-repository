@@ -16,3 +16,13 @@ div .mobile-fix {
         padding-right: 0;
     }
 }
+
+.main-container,
+.darker-background {
+    background-color: $md-tertiary-color;
+}
+
+a:link {
+    color: $md-secondary-color;
+    text-decoration: none;
+}

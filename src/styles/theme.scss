@@ -1,5 +1,9 @@
-@import 'global.scss';
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700|Material+Icons');
-@import 'theme.scss';
+
+@import './vars';
+@import './global';
+@import './mobile';
+@import './tablet';
+@import './desktop';
 
 @include react-md-everything;

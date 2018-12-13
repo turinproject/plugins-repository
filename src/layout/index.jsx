@@ -3,9 +3,7 @@ import Helmet from "react-helmet";
 import Navigation from "../components/Navigation";
 import config from "../../data/SiteConfig";
 import "font-awesome/scss/font-awesome.scss";
-import "./index.scss";
-import "./global.scss";
-
+import "../styles/theme.scss";
 
 export default class PageLayout extends React.Component {
   render() {
