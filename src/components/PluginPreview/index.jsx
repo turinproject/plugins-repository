@@ -49,7 +49,7 @@ class PluginPreview extends Component {
             <MediaOverlay>
               <CardTitle title={pluginInfo.title}>
                 <Button raised secondary className="md-cell--right">
-                  Read
+                  Install
                 </Button>
               </CardTitle>
             </MediaOverlay>
