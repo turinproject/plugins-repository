@@ -6,31 +6,31 @@ import { Link } from "gatsby";
 import moment from "moment";
 import _ from "lodash";
 import config from "../../../data/SiteConfig";
-import "./PostInfo.scss";
+import "./PluginInfo.scss";
 
-class PostInfo extends Component {
+class PluginInfo extends Component {
   render() {
-    const { postNode } = this.props;
-    const post = postNode.frontmatter;
+    const { pluginNode } = this.props;
+    const plugin = pluginNode.frontmatter;
     return (
-      <div className="post-info">
+      <div className="plugin-info">
         <CardTitle
           avatar={<Avatar icon={<FontIcon iconClassName="fa fa-calendar" />} />}
-          title={`Published on ${moment(postNode.fields.date).format(
+          title={`Published on ${moment(pluginNode.fields.date).format(
             config.dateFormat
           )}`}
-          subtitle={`${postNode.timeToRead} min read`}
+          subtitle={`${pluginNode.timeToRead} min read`}
         />
         <Link
           className="category-link"
-          to={`/categories/${_.kebabCase(post.category)}`}
+          to={`/categories/${_.kebabCase(plugin.category)}`}
         >
           <CardTitle
             avatar={
               <Avatar icon={<FontIcon iconClassName="fa fa-folder-open" />} />
             }
             title="In category"
-            subtitle={post.category}
+            subtitle={plugin.category}
           />
         </Link>
       </div>
@@ -38,4 +38,4 @@ class PostInfo extends Component {
   }
 }
 
-export default PostInfo;
+export default PluginInfo;

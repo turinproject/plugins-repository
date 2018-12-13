@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import FontIcon from "react-md/lib/FontIcons";
 import { Link } from "gatsby";
-import "./PostSuggestions.scss";
+import "./PluginSuggestions.scss";
 
-export default class PostSuggestions extends Component {
+export default class PluginSuggestions extends Component {
   render() {
-    const { postNode } = this.props;
-    const postFields = postNode.fields;
+    const { pluginNode } = this.props;
+    const pluginFields = pluginNode.fields;
     return (
-      <div className="post-suggestions md-grid md-cell--12">
-        <Link to={postFields.prevSlug} className="post-suggestion">
+      <div className="plugin-suggestions md-grid md-cell--12">
+        <Link to={pluginFields.prevSlug} className="plugin-suggestion">
           <FontIcon
             forceFontSize
             forceSize={64}
@@ -20,15 +20,15 @@ export default class PostSuggestions extends Component {
           <div className="headline-container hide-on-mobile">
             <h2 className="md-body-2 secondary-color">Previous</h2>
             <h6 className="md-headline secondary-color">
-              {postFields.prevTitle}
+              {pluginFields.prevTitle}
             </h6>
           </div>
         </Link>
-        <Link to={postFields.nextSlug} className="post-suggestion">
+        <Link to={pluginFields.nextSlug} className="plugin-suggestion">
           <div className="headline-container">
             <h2 className="md-body-2 secondary-color">Next</h2>
             <h6 className="md-headline secondary-color">
-              {postFields.nextTitle}
+              {pluginFields.nextTitle}
             </h6>
           </div>
           <FontIcon

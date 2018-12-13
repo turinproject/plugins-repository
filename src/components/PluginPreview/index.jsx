@@ -8,12 +8,11 @@ import FontIcon from "react-md/lib/FontIcons";
 import { Link } from "gatsby";
 import moment from "moment";
 import Media, { MediaOverlay } from "react-md/lib/Media";
-import PostTags from "../PostTags";
-// import PostCover from "../PostCover";
+import PluginTags from "../PluginTags";
 import config from "../../../data/SiteConfig";
-import "./PostPreview.scss";
+import "./PluginPreview.scss";
 
-class PostPreview extends Component {
+class PluginPreview extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,17 +37,17 @@ class PostPreview extends Component {
     }
   }
   render() {
-    const { postInfo } = this.props;
+    const { pluginInfo } = this.props;
     const { mobile } = this.state;
     const expand = mobile;
     /* eslint no-undef: "off" */
     const coverHeight = mobile ? 85 : 85;
     return (
-      <Card key={postInfo.path} raise className="md-grid md-cell md-cell--4">
-        <Link style={{ textDecoration: "none" }} to={postInfo.path}>
+      <Card key={pluginInfo.path} raise className="md-grid md-cell md-cell--4">
+        <Link style={{ textDecoration: "none" }} to={pluginInfo.path}>
           <Media style={{ height: coverHeight, paddingBottom: "0px" }}>
             <MediaOverlay>
-              <CardTitle title={postInfo.title}>
+              <CardTitle title={pluginInfo.title}>
                 <Button raised secondary className="md-cell--right">
                   Read
                 </Button>
@@ -59,19 +58,19 @@ class PostPreview extends Component {
         <CardTitle
           expander={expand}
           avatar={<Avatar icon={<FontIcon iconClassName="fa fa-calendar" />} />}
-          title={`Published on ${moment(postInfo.date).format(
+          title={`Published on ${moment(pluginInfo.date).format(
             config.dateFormat
           )}`}
-          subtitle={`${postInfo.timeToRead} min read`}
+          subtitle={`${pluginInfo.timeToRead} min read`}
         />
 
         <CardText expandable={expand}>
-          {postInfo.excerpt}
-          <PostTags tags={postInfo.tags} />
+          {pluginInfo.description}
+          <PluginTags tags={pluginInfo.tags} />
         </CardText>
       </Card>
     );
   }
 }
 
-export default PostPreview;
+export default PluginPreview;

@@ -2,13 +2,13 @@ import React from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import Layout from "../layout";
-import PostListing from "../components/PostListing";
+import PluginListing from "../components/PluginListing";
 import SEO from "../components/SEO";
 import config from "../../data/SiteConfig";
 
 class Index extends React.Component {
   render() {
-    const postEdges = this.props.data.allMarkdownRemark.edges;
+    const pluginEdges = this.props.data.allMarkdownRemark.edges;
     return (
       <Layout location={this.props.location} title="Home">
         <div className="index-container">
@@ -16,8 +16,8 @@ class Index extends React.Component {
             <title>{config.siteTitle}</title>
             <link rel="canonical" href={`${config.siteUrl}`} />
           </Helmet>
-          <SEO postEdges={postEdges} />
-          <PostListing postEdges={postEdges} />
+          <SEO pluginEdges={pluginEdges} />
+          <PluginListing pluginEdges={pluginEdges} />
         </div>
       </Layout>
     );
@@ -38,8 +38,6 @@ export const pageQuery = graphql`
             slug
             date
           }
-          excerpt
-          timeToRead
           frontmatter {
             title
             tags

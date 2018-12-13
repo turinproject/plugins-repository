@@ -3,10 +3,10 @@ const _ = require("lodash");
 const moment = require("moment");
 const siteConfig = require("./data/SiteConfig");
 
-const postNodes = [];
+const pluginNodes = [];
 
 function addSiblingNodes(createNodeField) {
-  postNodes.sort(
+  pluginNodes.sort(
     ({ frontmatter: { date: date1 } }, { frontmatter: { date: date2 } }) => {
       const dateA = moment(date1, siteConfig.dateFromFormat);
       const dateB = moment(date2, siteConfig.dateFromFormat);
@@ -18,12 +18,12 @@ function addSiblingNodes(createNodeField) {
       return 0;
     }
   );
-  for (let i = 0; i < postNodes.length; i += 1) {
-    const nextID = i + 1 < postNodes.length ? i + 1 : 0;
-    const prevID = i - 1 > 0 ? i - 1 : postNodes.length - 1;
-    const currNode = postNodes[i];
-    const nextNode = postNodes[nextID];
-    const prevNode = postNodes[prevID];
+  for (let i = 0; i < pluginNodes.length; i += 1) {
+    const nextID = i + 1 < pluginNodes.length ? i + 1 : 0;
+    const prevID = i - 1 > 0 ? i - 1 : pluginNodes.length - 1;
+    const currNode = pluginNodes[i];
+    const nextNode = pluginNodes[nextID];
+    const prevNode = pluginNodes[prevID];
     createNodeField({
       node: currNode,
       name: "nextTitle",
@@ -82,7 +82,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       }
     }
     createNodeField({ node, name: "slug", value: slug });
-    postNodes.push(node);
+    pluginNodes.push(node);
   }
 };
 
@@ -98,7 +98,6 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
-    const postPage = path.resolve("src/templates/post.jsx");
     const pluginPage = path.resolve("src/templates/plugin.jsx");
     const tagPage = path.resolve("src/templates/tag.jsx");
     const categoryPage = path.resolve("src/templates/category.jsx");

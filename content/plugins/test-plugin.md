@@ -62,7 +62,7 @@ ergo firmat albentia verba casuque.
 Multis timidus hic si auctor hausit. Suos taedasque, malis est nitente sceleri
 sunt florem.
 
-Sub quid deprenderat mores postquam tectoque maiestatemque debebat quibus;
+Sub quid deprenderat mores pluginquam tectoque maiestatemque debebat quibus;
 subitam amittere illius esse dona. Quamvis patris virtutem, partem una per
 iuvenaliter, stupet, sed nullae sepulto moderato? Nec phaedimus aequoris dixit.
 Hic bis parenti: e petunt satis.

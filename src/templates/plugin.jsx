@@ -5,14 +5,11 @@ import Card from "react-md/lib/Cards";
 import CardText from "react-md/lib/Cards/CardText";
 import Layout from "../layout";
 import UserInfo from "../components/UserInfo";
-import PostTags from "../components/PostTags";
-// import PostCover from "../components/PostCover";
-import PostInfo from "../components/PostInfo";
-import SocialLinks from "../components/SocialLinks";
-import PostSuggestions from "../components/PostSuggestions";
+import PluginTags from "../components/PluginTags";
+import PluginInfo from "../components/PluginInfo";
+import PluginSuggestions from "../components/PluginSuggestions";
 import SEO from "../components/SEO";
 import config from "../../data/SiteConfig";
-import "./b16-tomorrow-dark.css";
 import "./plugin.scss";
 
 export default class PluginTemplate extends React.Component {
@@ -44,41 +41,36 @@ export default class PluginTemplate extends React.Component {
     const { mobile } = this.state;
     const { slug } = this.props.pageContext;
     const expanded = !mobile;
-    const postOverlapClass = mobile ? "post-overlap-mobile" : "post-overlap";
-    const postNode = this.props.data.markdownRemark;
-    const post = postNode.frontmatter;
-    if (!post.id) {
-      post.id = slug;
+    const pluginOverlapClass = mobile ? "plugin-overlap-mobile" : "plugin-overlap";
+    const pluginNode = this.props.data.markdownRemark;
+    const plugin = pluginNode.frontmatter;
+    if (!plugin.id) {
+      plugin.id = slug;
     }
-    if (!post.category_id) {
-      post.category_id = config.postDefaultCategoryID;
+    if (!plugin.category_id) {
+      plugin.category_id = config.pluginDefaultCategoryID;
     }
 
     const coverHeight = mobile ? 180 : 350;
     return (
       <Layout location={this.props.location}>
-        <div className="post-page md-grid md-grid--no-spacing">
+        <div className="plugin-page md-grid md-grid--no-spacing">
           <Helmet>
-            <title>{`${post.title} | ${config.siteTitle}`}</title>
-            <link rel="canonical" href={`${config.siteUrl}${post.id}`} />
+            <title>{`${plugin.title} | ${config.siteTitle}`}</title>
+            <link rel="canonical" href={`${config.siteUrl}${plugin.id}`} />
           </Helmet>
-          <SEO postPath={slug} postNode={postNode} postSEO />
+          <SEO pluginPath={slug} pluginNode={pluginNode} pluginSEO />
           <div
-            className={`md-grid md-cell--9 post-page-contents mobile-fix ${postOverlapClass}`}
+            className={`md-grid md-cell--9 plugin-page-contents mobile-fix ${pluginOverlapClass}`}
           >
-            <Card className="md-grid md-cell md-cell--12 post">
-              <CardText className="post-body">
-                <h1 className="md-display-2 post-header">{post.title}</h1>
-                <PostInfo postNode={postNode} />
-                <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+            <Card className="md-grid md-cell md-cell--12 plugin">
+              <CardText className="plugin-body">
+                <h1 className="md-display-2 plugin-header">{plugin.title}</h1>
+                <PluginInfo pluginNode={pluginNode} />
+                <div dangerouslySetInnerHTML={{ __html: pluginNode.html }} />
               </CardText>
-              <div className="post-meta">
-                <PostTags tags={post.tags} />
-                <SocialLinks
-                  postPath={slug}
-                  postNode={postNode}
-                  mobile={this.state.mobile}
-                />
+              <div className="plugin-meta">
+                <PluginTags tags={plugin.tags} />
               </div>
             </Card>
             <UserInfo
@@ -88,7 +80,7 @@ export default class PluginTemplate extends React.Component {
             />
           </div>
 
-          <PostSuggestions postNode={postNode} />
+          <PluginSuggestions pluginNode={pluginNode} />
         </div>
       </Layout>
     );
@@ -99,8 +91,6 @@ export const pageQuery = graphql`
   query PluginBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
-      timeToRead
-      excerpt
       frontmatter {
         title
         logo

@@ -2,13 +2,13 @@ import React from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import Layout from "../layout";
-import PostListing from "../components/PostListing";
+import PluginListing from "../components/PluginListing";
 import config from "../../data/SiteConfig";
 
 export default class TagTemplate extends React.Component {
   render() {
     const { tag } = this.props.pageContext;
-    const postEdges = this.props.data.allMarkdownRemark.edges;
+    const pluginEdges = this.props.data.allMarkdownRemark.edges;
 
     return (
       <Layout
@@ -17,10 +17,10 @@ export default class TagTemplate extends React.Component {
       >
         <div className="tag-container">
           <Helmet>
-            <title>{`Posts tagged as "${tag}" | ${config.siteTitle}`}</title>
+            <title>{`Plugins tagged as "${tag}" | ${config.siteTitle}`}</title>
             <link rel="canonical" href={`${config.siteUrl}/tags/${tag}`} />
           </Helmet>
-          <PostListing postEdges={postEdges} />
+          <PluginListing pluginEdges={pluginEdges} />
         </div>
       </Layout>
     );
@@ -41,8 +41,6 @@ export const pageQuery = graphql`
             slug
             date
           }
-          excerpt
-          timeToRead
           frontmatter {
             title
             tags

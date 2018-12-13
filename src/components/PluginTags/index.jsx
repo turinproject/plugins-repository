@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import _ from "lodash";
 import { Link } from "gatsby";
 import Chip from "react-md/lib/Chips";
-import "./PostTags.scss";
+import "./PluginTags.scss";
 
-class PostTags extends Component {
+class PluginTags extends Component {
   render() {
     const { tags } = this.props;
     return (
-      <div className="post-tag-container">
+      <div className="plugin-tag-container">
         {tags &&
           tags.map(tag => (
             <Link
@@ -16,7 +16,7 @@ class PostTags extends Component {
               style={{ textDecoration: "none" }}
               to={`/tags/${_.kebabCase(tag)}`}
             >
-              <Chip label={tag} className="post-preview-tags" />
+              <Chip label={tag} className="plugin-preview-tags" />
             </Link>
           ))}
       </div>
@@ -24,4 +24,4 @@ class PostTags extends Component {
   }
 }
 
-export default PostTags;
+export default PluginTags;

@@ -5,19 +5,19 @@ import config from "../../../data/SiteConfig";
 
 class SEO extends Component {
   render() {
-    const { postNode, postPath, postSEO } = this.props;
+    const { pluginNode, pluginPath, pluginSEO } = this.props;
     let title;
     let description;
     let image;
-    let postURL;
-    if (postSEO) {
-      const postMeta = postNode.frontmatter;
-      ({ title } = postMeta);
-      description = postMeta.description
-        ? postMeta.description
-        : postNode.excerpt;
-      image = postMeta.logo;
-      postURL = urljoin(config.siteUrl, config.pathPrefix, postPath);
+    let pluginURL;
+    if (pluginSEO) {
+      const pluginMeta = pluginNode.frontmatter;
+      ({ title } = pluginMeta);
+      description = pluginMeta.description
+        ? pluginMeta.description
+        : pluginNode.description;
+      image = pluginMeta.logo;
+      pluginURL = urljoin(config.siteUrl, config.pathPrefix, pluginPath);
     } else {
       title = config.siteTitle;
       description = config.siteDescription;
@@ -34,7 +34,7 @@ class SEO extends Component {
         alternateName: config.siteTitleAlt ? config.siteTitleAlt : ""
       }
     ];
-    if (postSEO) {
+    if (pluginSEO) {
       schemaOrgJSONLD.push([
         {
           "@context": "http://schema.org",
@@ -44,7 +44,7 @@ class SEO extends Component {
               "@type": "ListItem",
               position: 1,
               item: {
-                "@id": postURL,
+                "@id": pluginURL,
                 name: title,
                 image
               }
@@ -53,7 +53,7 @@ class SEO extends Component {
         },
         {
           "@context": "http://schema.org",
-          "@type": "BlogPosting",
+          "@type": "BlogPlugining",
           url: blogURL,
           name: title,
           alternateName: config.siteTitleAlt ? config.siteTitleAlt : "",
@@ -78,25 +78,12 @@ class SEO extends Component {
         </script>
 
         {/* OpenGraph tags */}
-        <meta property="og:url" content={postSEO ? postURL : blogURL} />
-        {postSEO ? <meta property="og:type" content="article" /> : null}
+        <meta property="og:url" content={pluginSEO ? pluginURL : blogURL} />
+        {pluginSEO ? <meta property="og:type" content="article" /> : null}
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
-        <meta
-          property="fb:app_id"
-          content={config.siteFBAppID ? config.siteFBAppID : ""}
-        />
 
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:creator"
-          content={config.userTwitter ? config.userTwitter : ""}
-        />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={image} />
       </Helmet>
     );
   }

@@ -1,6 +1,6 @@
 @import "../../layout/theme.scss";
 
-.post-suggestions {
+.plugin-suggestions {
   display: flex;
   flex-wrap: nowrap !important;
   justify-content: space-between;
@@ -12,7 +12,7 @@
     }
   }
 
-  .post-suggestion {
+  .plugin-suggestion {
     display: flex;
     align-items: center;
     margin: 0 15px;
