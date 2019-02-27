@@ -72,7 +72,7 @@
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
-    "dev": "npm run develop",
+    "start": "npm run develop",
     "serve": "gatsby serve",
     "build": "gatsby build",
     "build:pp": "gatsby build --prefix-paths",

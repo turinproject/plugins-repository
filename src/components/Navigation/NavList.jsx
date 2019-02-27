@@ -28,11 +28,19 @@ function GetNavList(config) {
 
   NavList.push({ divider: true });
 
+/*
   NavList.push({
     primaryText: "About",
     leftIcon: <FontIcon>person</FontIcon>,
     component: Link,
     to: "/about/"
+  });
+*/
+  NavList.push({
+    primaryText: "Login",
+    leftIcon: <FontIcon>person</FontIcon>,
+    component: "a",
+    href: "/admin/#/"
   });
   return NavList;
 }

@@ -10,7 +10,6 @@ import PluginInfo from "../components/PluginInfo";
 import PluginSuggestions from "../components/PluginSuggestions";
 import SEO from "../components/SEO";
 import config from "../../data/SiteConfig";
-import "./plugin.scss";
 
 export default class PluginTemplate extends React.Component {
   constructor(props) {
