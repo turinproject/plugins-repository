@@ -7,7 +7,6 @@ import CardText from "react-md/lib/Cards/CardText";
 import FontIcon from "react-md/lib/FontIcons";
 import { Link } from "gatsby";
 import moment from "moment";
-import Media, { MediaOverlay } from "react-md/lib/Media";
 import PostTags from "../PostTags";
 // import PostCover from "../PostCover";
 import config from "../../../data/SiteConfig";
@@ -21,6 +20,7 @@ class PostPreview extends Component {
     };
     this.handleResize = this.handleResize.bind(this);
   }
+
   componentDidMount() {
     this.handleResize();
     window.addEventListener("resize", this.handleResize);
@@ -37,24 +37,20 @@ class PostPreview extends Component {
       this.setState({ mobile: true });
     }
   }
+
   render() {
     const { postInfo } = this.props;
     const { mobile } = this.state;
     const expand = mobile;
-    /* eslint no-undef: "off" */
-    const coverHeight = mobile ? 85 : 85;
+
     return (
-      <Card key={postInfo.path} raise className="md-grid md-cell md-cell--4">
+      <Card key={postInfo.path} raise id="cardItem" className="md-grid md-cell md-cell--4">
         <Link style={{ textDecoration: "none" }} to={postInfo.path}>
-          <Media style={{ height: coverHeight, paddingBottom: "0px" }}>
-            <MediaOverlay>
-              <CardTitle title={postInfo.title}>
-                <Button raised secondary className="md-cell--right">
-                  Read
-                </Button>
-              </CardTitle>
-            </MediaOverlay>
-          </Media>
+          <CardTitle className="cardHeader" title={postInfo.title}>
+            <Button raised secondary className="md-cell--right">
+              Read
+            </Button>
+          </CardTitle>
         </Link>
         <CardTitle
           expander={expand}

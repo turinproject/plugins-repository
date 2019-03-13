@@ -8,8 +8,9 @@ $phone-status-bar-height: 24px - 12px;
 }
 
 .post-overlap {
-    margin-top: -80px !important;
+    // margin-top: -80px !important;
     z-index: 2;
+    min-height: calc(100vh - 260px);
 }
 
 .post-overlap-mobile {
@@ -39,6 +40,7 @@ $phone-status-bar-height: 24px - 12px;
         max-width: 100%;
         word-wrap: break-word;
         white-space: normal;
+        font-weight: bold;
     }
 
     .post {
@@ -50,6 +52,7 @@ $phone-status-bar-height: 24px - 12px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            width: 100%;
         }
 
         .post-body {

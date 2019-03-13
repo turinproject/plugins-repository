@@ -29,5 +29,5 @@ module.exports = {
       iconClassName: "fa fa-slack"
     },
   ],
-  copyright: "Copyright © 2018." // Copyright string for the footer of the website and RSS feed.
+  copyright: "Copyright © 2019." // Copyright string for the footer of the website and RSS feed.
 };
