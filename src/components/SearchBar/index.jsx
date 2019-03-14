@@ -5,7 +5,7 @@ import "./SearchBar.scss";
 
 class SearchBar extends Component {
   render() {
-    const { searchTerm } = this.props;
+    // const { searchTerm } = this.props;
     return (
       <div className="md-grid md-cell--8 mobile-fix">
         <TextField
@@ -15,7 +15,7 @@ class SearchBar extends Component {
           placeholder="Enter a Search Term"
           className="searchbar"
           rightIcon={<FontIcon>search</FontIcon>}
-          fullWidth={true}
+          fullWidth
         />
       </div>
     );

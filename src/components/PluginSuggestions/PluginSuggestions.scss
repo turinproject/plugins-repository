@@ -21,10 +21,14 @@
     .headline-container {
       margin-right: 10px;
       margin-left: 10px;
-    }
 
-    .arrow-nav {
-      margin-top: 15px;
+      h6 {
+        font-weight: bold;
+      }
+
+      h2 {
+        margin-bottom: 0;
+      }
     }
   }
 

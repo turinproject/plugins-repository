@@ -12,7 +12,7 @@ export default class PluginSuggestions extends Component {
         <Link to={pluginFields.prevSlug} className="plugin-suggestion">
           <FontIcon
             forceFontSize
-            forceSize={64}
+            forceSize={40}
             className="secondary-color arrow-nav"
           >
             arrow_back
@@ -33,7 +33,7 @@ export default class PluginSuggestions extends Component {
           </div>
           <FontIcon
             forceFontSize
-            forceSize={64}
+            forceSize={40}
             className="secondary-color arrow-nav"
           >
             arrow_forward
