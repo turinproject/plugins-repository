@@ -3,6 +3,7 @@
   "plugins": ["react", "jsx-a11y", "import"],
   "rules": {
     "react/prefer-stateless-function": "off",
+    "react/destructuring-assignment": "off",
     "react/prop-types": "off",
     "react/no-danger": "off",
     "jsx-a11y/anchor-is-valid": [ "error", {

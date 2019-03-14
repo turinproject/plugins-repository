@@ -17,6 +17,7 @@ class PluginListing extends React.Component {
     });
     return pluginList;
   }
+
   render() {
     const pluginList = this.getPluginList();
     return (

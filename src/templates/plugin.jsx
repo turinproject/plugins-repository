@@ -20,6 +20,7 @@ export default class PluginTemplate extends React.Component {
     };
     this.handleResize = this.handleResize.bind(this);
   }
+
   componentDidMount() {
     this.handleResize();
     window.addEventListener("resize", this.handleResize);
@@ -51,7 +52,6 @@ export default class PluginTemplate extends React.Component {
       plugin.category_id = config.pluginDefaultCategoryID;
     }
 
-    const coverHeight = mobile ? 180 : 350;
     return (
       <Layout location={this.props.location}>
         <div className="plugin-page md-grid md-grid--no-spacing">
