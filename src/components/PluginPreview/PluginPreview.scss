@@ -19,4 +19,14 @@
       text-overflow: ellipsis;
     }
   }
+
+  > div.md-card-title {
+    > div.md-avatar--card {
+      border: none;
+    }
+
+    h2.md-card-title--title {
+      align-self: flex-start;
+    }
+  }
 }

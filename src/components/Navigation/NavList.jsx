@@ -34,6 +34,30 @@ function GetNavList(config) {
     component: Link,
     to: "/about/"
   });
+
+  NavList.push({ divider: true });
+
+  NavList.push({
+    primaryText: "Log In",
+    leftIcon: <FontIcon>exit_to_app</FontIcon>,
+    component: Link,
+    to: "/signin/"
+  });
+
+  NavList.push({
+    primaryText: "Sign Up",
+    leftIcon: <FontIcon>person_add</FontIcon>,
+    component: Link,
+    to: "/signup/"
+  });
+
+  NavList.push({ divider: true });
+
+  NavList.push({
+    primaryText: "Log out",
+    leftIcon: <FontIcon>power_settings_new</FontIcon>
+  });
+
   return NavList;
 }
 export default GetNavList;
