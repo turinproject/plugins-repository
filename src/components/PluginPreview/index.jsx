@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import Card from "react-md/lib/Cards/Card";
-import CardTitle from "react-md/lib/Cards/CardTitle";
-import Button from "react-md/lib/Buttons";
-import Avatar from "react-md/lib/Avatars";
-import CardText from "react-md/lib/Cards/CardText";
-import FontIcon from "react-md/lib/FontIcons";
+import { Card, CardTitle, CardText, Button, Avatar } from 'react-md';
 import { Link } from "gatsby";
 import moment from "moment";
 import PluginTags from "../PluginTags";
@@ -53,11 +48,10 @@ class PluginPreview extends Component {
         </Link>
         <CardTitle
           expander={expand}
-          avatar={<Avatar icon={<FontIcon iconClassName="fa fa-calendar" />} />}
+          avatar={<Avatar src={config.siteLogo} />}
           title={`Published on ${moment(pluginInfo.date).format(
             config.dateFormat
           )}`}
-          subtitle={`${pluginInfo.timeToRead} min read`}
         />
 
         <CardText expandable={expand}>

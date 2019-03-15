@@ -15,11 +15,10 @@ class PluginInfo extends Component {
     return (
       <div className="plugin-info">
         <CardTitle
-          avatar={<Avatar icon={<FontIcon iconClassName="fa fa-calendar" />} />}
+          avatar={<Avatar src={config.siteLogo} />}
           title={`Published on ${moment(pluginNode.fields.date).format(
             config.dateFormat
           )}`}
-          subtitle={`${pluginNode.timeToRead} min read`}
         />
         <Link
           className="category-link"

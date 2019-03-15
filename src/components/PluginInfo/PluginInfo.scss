@@ -1,15 +1,25 @@
 .plugin-info {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    margin-bottom: 30px;
-    margin-top: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  margin-top: 10px;
 
-    > div {
-        margin-right: 20px;
+  >div {
+    margin-right: 20px;
+  }
+
+  .category-link {
+    margin-right: 20px;
+  }
+
+  >div.md-card-title {
+    >div.md-avatar--card {
+      border: none;
     }
 
-    .category-link {
-        margin-right: 20px;
+    h2.md-card-title--title {
+      align-self: flex-start;
     }
+  }
 }
