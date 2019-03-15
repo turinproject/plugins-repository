@@ -41,14 +41,14 @@ function GetNavList(config) {
     primaryText: "Log In",
     leftIcon: <FontIcon>exit_to_app</FontIcon>,
     component: Link,
-    to: "/signin/"
+    to: "/auth/signin/"
   });
 
   NavList.push({
     primaryText: "Sign Up",
     leftIcon: <FontIcon>person_add</FontIcon>,
     component: Link,
-    to: "/signup/"
+    to: "/auth/signup/"
   });
 
   NavList.push({ divider: true });
