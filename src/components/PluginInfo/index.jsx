@@ -6,7 +6,6 @@ import { Link } from "gatsby";
 import moment from "moment";
 import _ from "lodash";
 import config from "../../../data/SiteConfig";
-import "./PluginInfo.scss";
 
 class PluginInfo extends Component {
   render() {

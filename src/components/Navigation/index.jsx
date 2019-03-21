@@ -3,7 +3,6 @@ import NavigationDrawer from "react-md/lib/NavigationDrawers";
 import ToolbarActions from "../ToolbarActions";
 import Footer from "../Footer";
 import GetNavList from "./NavList";
-import "./Navigation.scss";
 
 class Navigation extends Component {
   render() {

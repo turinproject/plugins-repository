@@ -3,7 +3,6 @@ import Button from "react-md/lib/Buttons";
 import { Link } from "gatsby";
 import UserLinks from "../UserLinks";
 import config from "../../../data/SiteConfig";
-import "./Footer.scss";
 
 class Footer extends Component {
   render() {

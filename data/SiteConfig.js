@@ -5,14 +5,54 @@ module.exports = {
   siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
   siteUrl: "https://www.turinproject.org", // Domain of your website without pathPrefix.
   pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/gatsby-material-starter/.
-  fixedFooter: false, // Whether the footer component is fixed, i.e. always visible
   siteDescription: "A plugin repository for Avogadro 2.", // Website description used for meta description tag.
-  pluginDefaultCategoryID: "Generators", // Default category for plugins.
+  categories: [
+    {
+      id: 'plugin-type',
+      name: 'Plugin Types',
+      options: [
+        {
+          id: 'generators',
+          name: 'Generators'
+        },
+        {
+          id: 'commands',
+          name: 'commands'
+        },{
+          id: 'data',
+          name: 'Data'
+        },
+        {
+          id: 'force-fields',
+          name: 'Force Fields'
+        },
+        {
+          id: 'other',
+          name: 'Other'
+        },
+      ]
+    },
+    {
+      id: 'plugin-status',
+      name: 'Status',
+      options: [
+        {
+          id: 'submitted',
+          name: 'Submitted'
+        },
+        {
+          id: 'approved',
+          name: 'Approved'
+        },
+        {
+          id: 'featured',
+          name: 'Featured'
+        },
+      ]
+    }
+  ],
   dateFromFormat: "YYYY-MM-DD", // Date format used in the frontmatter.
   dateFormat: "DD/MM/YYYY", // Date format for display.
-  userName: "", // Username to display in the author segment.
-  userAvatar: "https://api.adorable.io/avatars/150/test.png", // User avatar to display in the author segment.
-  userDescription: ".", // User description to display in the author segment.
 
   // Links to social profiles/projects you want to display in the author segment/navigation bar.
   userLinks: [

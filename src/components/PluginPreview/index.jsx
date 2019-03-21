@@ -10,7 +10,6 @@ import moment from "moment";
 import Media, { MediaOverlay } from "react-md/lib/Media";
 import PluginTags from "../PluginTags";
 import config from "../../../data/SiteConfig";
-import "./PluginPreview.scss";
 
 class PluginPreview extends Component {
   constructor(props) {

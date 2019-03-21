@@ -1,5 +1,11 @@
-const config = require("./data/SiteConfig");
-const urljoin = require("url-join");
+require('dotenv').config();
+const config = require('./data/SiteConfig');
+const plugins = require('./data/PluginsList');
+const urljoin = require('url-join');
+
+const fetch = require('node-fetch');
+const { createHttpLink } = require('apollo-link-http');
+
 
 const regexExcludeRobots = /^(?!\/(dev-404-page|404|offline-plugin-app-shell-fallback|tags|categories)).*$/;
 
@@ -98,6 +104,21 @@ module.exports = {
           }
         ]
       }
+    },
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "GitHub",
+        fieldName: "github",
+        createLink: () =>
+          createHttpLink({
+            uri: `https://api.github.com/graphql`,
+            headers: {
+              Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+            },
+            fetch,
+          }),
+      },
     },
     "gatsby-plugin-offline"
   ]
