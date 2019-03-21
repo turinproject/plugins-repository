@@ -18,7 +18,7 @@ class PluginInfo extends Component {
             <img
               src={plugin.logo}
               alt="avatar"
-              className="avatar"
+              style={{ width: '40px', height: '40px' }}
               onError={e => {e.target.src = config.siteLogo}}
             />
           )}

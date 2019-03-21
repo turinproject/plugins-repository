@@ -1,0 +1,121 @@
+@import 'styles/theme.scss';
+
+#cardItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  background: $color-white;
+  padding: 0;
+
+  .card-content {
+    display: flex;
+    width: 100%;
+    padding: 20px 20px 0;
+
+    .featured-image {
+      width: 8rem;
+      height: 8rem;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .card-body {
+      flex: 1;
+      padding: 0 20px;
+      width: calc(100% - 215px);
+
+      h3 {
+        color: $primary-color;
+        font-size: 2rem;
+        margin-bottom: 8px;
+        width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+  
+      p {
+        color: $secondary-color;
+        font-size: $font-size-default;
+        height: 4rem;
+        line-height: 2rem;
+        overflow: hidden;
+        margin-bottom: 0;
+      }
+    }
+
+    .card-action {
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+
+      .plugin-install {
+        height: unset;
+        min-width: 95px;
+        background: $color-light-grey;
+        border: 1px solid #e0e0e0;
+        font-size: 1.3rem;
+        padding: 6px 8px 4px;
+        color: $color-dark-grey;
+        border-radius: 3px;
+        box-shadow: none;
+        text-transform: capitalize;
+  
+        &:active {
+          box-shadow: 0 1px 3px 0 $color-grey;
+        }
+      }
+  
+      span {
+        display: inline-block;
+        color: $primary-color;
+        font-size: 1.3rem;
+        font-weight: $font-weight-medium;
+        margin-top: 6px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $color-medium-grey;
+    padding: 7px 20px 5px;
+    border: 1px solid #e0e0e0;
+    border-width: 1px 0 0;
+
+    .plugin-poster {
+      display: flex;
+      align-items: center;
+
+      span {
+        font-size: 1.3rem;
+        font-style: italic;
+        margin-left: 1rem;
+
+        span {
+          color: $primary-color;
+          margin-left: 0;
+        }
+      }
+    }
+
+    .post-desc {
+      display: flex;
+      flex-direction: column;
+      font-size: 1.2rem;
+
+      b {
+        color: $tertiary-color;
+        margin-right: 5px;
+      }
+
+      div {
+        text-align: center;
+      }
+    }
+  }
+}
