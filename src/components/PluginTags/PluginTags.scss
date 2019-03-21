@@ -1,0 +1,19 @@
+
+@import 'styles/theme.scss';
+
+.plugin-preview-tags {
+  color: $primary-color;
+  font-size: $font-size-default;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 3px 8px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.plugin-tag-container {
+  display: flex;
+  width: calc(100% - 110px);
+  align-self: flex-end;
+  padding: 10px 0;
+}

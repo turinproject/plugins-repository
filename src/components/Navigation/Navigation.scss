@@ -1,0 +1,33 @@
+@import 'styles/theme.scss';
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .main-content {
+      flex: 1;
+    }
+  }
+}
+
+#navbar {
+  > header {
+    background: $primary-color;
+    align-items: center;
+  }
+
+  .md-drawer header {
+    h2.md-title--toolbar {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 0;
+      padding: 0 20px;
+    }
+  }
+}
