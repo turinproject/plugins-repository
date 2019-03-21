@@ -1,9 +1,9 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { graphql } from "gatsby";
-import PluginListing from "../components/PluginListing";
-import Layout from "../layout";
-import config from "../../data/SiteConfig";
+import React from 'react';
+import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
+import PluginListing from 'components/PluginListing';
+import Layout from 'layout';
+import config from 'data/SiteConfig';
 
 export default class CategoryTemplate extends React.Component {
   render() {

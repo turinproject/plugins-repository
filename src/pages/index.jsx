@@ -1,10 +1,10 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { graphql } from "gatsby";
-import Layout from "layout";
-import PluginListing from "components/PluginListing";
-import SEO from "components/SEO";
-import config from "data/SiteConfig";
+import React from 'react';
+import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
+import Layout from 'layout';
+import PluginListing from 'components/PluginListing';
+import SEO from 'components/SEO';
+import config from 'data/SiteConfig';
 
 class Index extends React.Component {
   render() {

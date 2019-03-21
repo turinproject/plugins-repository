@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import FontIcon from "react-md/lib/FontIcons";
-import { Link } from "gatsby";
+import React, { Component } from 'react';
+import FontIcon from 'react-md/lib/FontIcons';
+import { Link } from 'gatsby';
 
 export default class PluginSuggestions extends Component {
   render() {

@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import Card from "react-md/lib/Cards/Card";
-import CardTitle from "react-md/lib/Cards/CardTitle";
-import CardText from "react-md/lib/Cards/CardText";
-import Avatar from "react-md/lib/Avatars";
-import FontIcon from "react-md/lib/FontIcons";
-import IconSeparator from "react-md/lib/Helpers/IconSeparator";
-import UserLinks from "../UserLinks";
+import React, { Component } from 'react';
+import Card from 'react-md/lib/Cards/Card';
+import CardTitle from 'react-md/lib/Cards/CardTitle';
+import CardText from 'react-md/lib/Cards/CardText';
+import Avatar from 'react-md/lib/Avatars';
+import FontIcon from 'react-md/lib/FontIcons';
+import IconSeparator from 'react-md/lib/Helpers/IconSeparator';
+import UserLinks from 'components/UserLinks';
 
 class UserInfo extends Component {
   render() {

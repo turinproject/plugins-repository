@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import TextField from "react-md/lib/TextFields";
-import FontIcon from "react-md/lib/FontIcons";
+import React, { Component } from 'react';
+import TextField from 'react-md/lib/TextFields';
+import FontIcon from 'react-md/lib/FontIcons';
 
 import './SearchBar.scss';
 

@@ -1,6 +1,6 @@
-import React from "react";
-import SearchBar from "../SearchBar";
-import PluginPreview from "../PluginPreview";
+import React from 'react';
+import SearchBar from '../SearchBar';
+import PluginPreview from '../PluginPreview';
 
 class PluginListing extends React.Component {
   getPluginList() {

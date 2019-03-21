@@ -1,9 +1,10 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { graphql } from "gatsby";
-import Layout from "../layout";
-import PluginListing from "../components/PluginListing";
-import config from "../../data/SiteConfig";
+import React from 'react';
+import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
+
+import Layout from 'layout';
+import PluginListing from 'components/PluginListing';
+import config from 'data/SiteConfig';
 
 export default class TagTemplate extends React.Component {
   render() {
