@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardTitle, CardText, Button, Avatar } from 'react-md';
+import { Card, CardTitle, CardText, Button } from 'react-md';
 import { Link } from "gatsby";
 import moment from "moment";
 import PluginTags from "../PluginTags";
@@ -10,7 +10,7 @@ class PluginPreview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mobile: true
+      isMobile: true
     };
     this.handleResize = this.handleResize.bind(this);
   }
@@ -26,20 +26,20 @@ class PluginPreview extends Component {
 
   handleResize() {
     if (window.innerWidth >= 640) {
-      this.setState({ mobile: false });
+      this.setState({ isMobile: false });
     } else {
-      this.setState({ mobile: true });
+      this.setState({ isMobile: true });
     }
   }
 
   render() {
     const { pluginInfo } = this.props;
-    const { mobile } = this.state;
-    const expand = mobile;
+    const { isMobile } = this.state;
+    const expand = isMobile;
 
     return (
       <Card key={pluginInfo.path} id="cardItem" raise className="md-grid md-cell md-cell--4">
-        <Link style={{ textDecoration: "none" }} to={pluginInfo.path}>
+        <Link style={{ textDecoration: "none", width: "100%" }} to={pluginInfo.path}>
           <CardTitle className="cardHeader" title={pluginInfo.title}>
             <Button raised secondary className="md-cell--right">
               Install
@@ -48,16 +48,23 @@ class PluginPreview extends Component {
         </Link>
         <CardTitle
           expander={expand}
-          avatar={<Avatar src={config.siteLogo} />}
+          avatar={(
+            <img
+              src={pluginInfo.logo}
+              alt="avatar"
+              className="avatar"
+              onError={e => {e.target.src = config.siteLogo}}
+            />
+          )}
           title={`Published on ${moment(pluginInfo.date).format(
             config.dateFormat
           )}`}
         />
 
-        <CardText expandable={expand}>
+        <CardText expandable={expand} id="cardBody">
           {pluginInfo.description}
-          <PluginTags tags={pluginInfo.tags} />
         </CardText>
+        <PluginTags tags={pluginInfo.tags} />
       </Card>
     );
   }

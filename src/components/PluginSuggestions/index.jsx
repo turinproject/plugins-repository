@@ -5,14 +5,14 @@ import "./PluginSuggestions.scss";
 
 export default class PluginSuggestions extends Component {
   render() {
-    const { pluginNode } = this.props;
+    const { pluginNode, isMobile } = this.props;
     const pluginFields = pluginNode.fields;
     return (
       <div className="plugin-suggestions md-grid md-cell--12">
         <Link to={pluginFields.prevSlug} className="plugin-suggestion">
           <FontIcon
             forceFontSize
-            forceSize={40}
+            forceSize={isMobile? 25 : 40}
             className="secondary-color arrow-nav"
           >
             arrow_back
@@ -33,7 +33,7 @@ export default class PluginSuggestions extends Component {
           </div>
           <FontIcon
             forceFontSize
-            forceSize={40}
+            forceSize={isMobile? 25 : 40}
             className="secondary-color arrow-nav"
           >
             arrow_forward

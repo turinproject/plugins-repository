@@ -15,7 +15,14 @@ class PluginInfo extends Component {
     return (
       <div className="plugin-info">
         <CardTitle
-          avatar={<Avatar src={config.siteLogo} />}
+          avatar={(
+            <img
+              src={plugin.logo}
+              alt="avatar"
+              className="avatar"
+              onError={e => {e.target.src = config.siteLogo}}
+            />
+          )}
           title={`Published on ${moment(pluginNode.fields.date).format(
             config.dateFormat
           )}`}

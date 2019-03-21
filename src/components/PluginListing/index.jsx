@@ -9,10 +9,11 @@ class PluginListing extends React.Component {
       pluginList.push({
         path: pluginEdge.node.fields.slug,
         tags: pluginEdge.node.frontmatter.tags,
+        category: pluginEdge.node.frontmatter.category,
         logo: pluginEdge.node.frontmatter.logo,
         title: pluginEdge.node.frontmatter.title,
         date: pluginEdge.node.fields.date,
-        description: pluginEdge.node.description
+        description: pluginEdge.node.rawMarkdownBody
       });
     });
     return pluginList;
