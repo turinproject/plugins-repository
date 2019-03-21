@@ -4,7 +4,6 @@ import { Link } from "gatsby";
 import moment from "moment";
 import PluginTags from "../PluginTags";
 import config from "../../../data/SiteConfig";
-import "./PluginPreview.scss";
 
 class PluginPreview extends Component {
   constructor(props) {

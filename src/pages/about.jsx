@@ -1,23 +1,17 @@
 import React, { Component } from "react";
-import Helmet from "react-helmet";
-import Layout from "../layout";
-import About from "../components/About";
+import Page from "../templates/page";
 import config from "../../data/SiteConfig";
 
-class AboutPage extends Component {
+class About extends Component {
   render() {
     return (
-      <Layout location={this.props.location} title="About">
-        <div className="submit-plugin-container">
-          <Helmet>
-            <title>{`About | ${config.siteTitle}`}</title>
-            <link rel="canonical" href={`${config.siteUrl}/about/`} />
-          </Helmet>
-          <About />
-        </div>
-      </Layout>
+      <Page
+        location={this.props.location}
+        url={`${config.siteUrl}/about/`}
+        title='About'
+      />
     );
   }
 }
 
-export default AboutPage;
+export default About;

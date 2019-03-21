@@ -6,7 +6,6 @@ import Avatar from "react-md/lib/Avatars";
 import FontIcon from "react-md/lib/FontIcons";
 import IconSeparator from "react-md/lib/Helpers/IconSeparator";
 import UserLinks from "../UserLinks";
-import "./UserInfo.scss";
 
 class UserInfo extends Component {
   render() {

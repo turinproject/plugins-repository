@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import UserLinks from "../UserLinks";
-import "./ToolbarActions.scss";
 
 class Toolbar extends Component {
   render() {

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import _ from "lodash";
 import { Link } from "gatsby";
 import Chip from "react-md/lib/Chips";
-import "./PluginTags.scss";
 
 class PluginTags extends Component {
   render() {

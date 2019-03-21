@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import FontIcon from "react-md/lib/FontIcons";
 import { Link } from "gatsby";
-import "./PluginSuggestions.scss";
 
 export default class PluginSuggestions extends Component {
   render() {

@@ -35,13 +35,20 @@ function GetNavList(config) {
     to: "/about/"
   });
 
+  NavList.push({
+    primaryText: "Contribute",
+    leftIcon: <FontIcon>how_to_reg</FontIcon>,
+    component: Link,
+    to: "/contribute/"
+  });
+
   NavList.push({ divider: true });
 
   NavList.push({
     primaryText: "Log In",
     leftIcon: <FontIcon>exit_to_app</FontIcon>,
     component: Link,
-    to: "/auth/signin/"
+    to: "/admin/#/"
   });
 
   NavList.push({
