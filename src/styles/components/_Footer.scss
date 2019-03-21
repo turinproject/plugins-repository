@@ -1,7 +1,9 @@
+@import "styles/theme.scss";
+
 .footer {
   justify-content: center;
   align-content: center;
-  background-color: $md-primary-color;
+  background-color: $tertiary-color;
   padding: 10px 5px 5px;
 
   .based-on {

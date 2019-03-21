@@ -1,12 +1,12 @@
 require('dotenv').config();
 
-const plugins = require('./data/PluginsList');
 const urljoin = require('url-join');
-const config = require('./data/SiteConfig');
-
 const fetch = require('node-fetch');
 const { createHttpLink } = require('apollo-link-http');
+const path = require('path');
 
+const config = require('./data/SiteConfig');
+// const plugins = require('./data/PluginsList');
 
 const regexExcludeRobots = /^(?!\/(dev-404-page|404|offline-plugin-app-shell-fallback|tags|categories)).*$/;
 
@@ -19,6 +19,8 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-lodash",
     "gatsby-plugin-sass",
+    "gatsby-plugin-catch-links",
+    "gatsby-plugin-netlify-cms",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -52,8 +54,18 @@ module.exports = {
         color: "#c62828"
       }
     },
-    "gatsby-plugin-catch-links",
-    "gatsby-plugin-netlify-cms",
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        src: path.join(__dirname, 'src'),
+        pages: path.join(__dirname, 'src/pages'),
+        components: path.join(__dirname, 'src/components'),
+        templates: path.join(__dirname, 'src/templates'),
+        layout: path.join(__dirname, 'src/layout'),
+        styles: path.join(__dirname, 'src/styles'),
+        data: path.join(__dirname, 'data')
+      }
+    },
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
