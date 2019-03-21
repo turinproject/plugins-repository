@@ -1,3 +1,5 @@
+@import '~react-md/src/scss/react-md';
+@import './src/styles/theme.scss';
 $phone-status-bar-height: 24px - 12px;
 
 .plugin-page {
@@ -118,7 +120,7 @@ $phone-status-bar-height: 24px - 12px;
 // scss of base16 tomorrow dark found in Atom core
 code[class*="language-"] {
 	font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
-	font-size: 14px;
+	font-size: $font-size-default;
 	line-height: 1.375;
 	direction: ltr;
 	text-align: left;
@@ -149,7 +151,7 @@ code[class*="language-"] {
 }
 pre[class*="language-"] {
 	font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
-	font-size: 14px;
+	font-size: $font-size-default;
 	line-height: 1.375;
 	direction: ltr;
 	text-align: left;

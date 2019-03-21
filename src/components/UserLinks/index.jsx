@@ -9,7 +9,6 @@ class UserLinks extends Component {
       <Button
         icon={!labeled}
         flat={labeled}
-        secondary
         key={link.label}
         iconClassName={link.iconClassName}
         href={link.url}

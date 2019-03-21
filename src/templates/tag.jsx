@@ -15,7 +15,7 @@ export default class TagTemplate extends React.Component {
         location={this.props.location}
         title={`Tagged in ${tag.charAt(0).toUpperCase() + tag.slice(1)}`}
       >
-        <div className="tag-container">
+        <div className="index-container">
           <Helmet>
             <title>{`Plugins tagged as "${tag}" | ${config.siteTitle}`}</title>
             <link rel="canonical" href={`${config.siteUrl}/tags/${tag}`} />

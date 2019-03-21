@@ -18,7 +18,6 @@ function addSiblingNodes(createNodeField) {
       return 0;
     }
   );
-  console.log('pluginNodes', pluginNodes);
   for (let i = 0; i < pluginNodes.length; i += 1) {
     const nextID = i + 1 < pluginNodes.length ? i + 1 : 0;
     const prevID = i - 1 > 0 ? i - 1 : pluginNodes.length - 1;
