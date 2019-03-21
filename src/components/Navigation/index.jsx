@@ -7,9 +7,10 @@ import GetNavList from "./NavList";
 class Navigation extends Component {
   render() {
     const { children, config, LocalTitle } = this.props;
-    const footerLinks = LocalTitle !== "About";
+    const isAboutPage = LocalTitle === "About";
     return (
       <NavigationDrawer
+        id="navbar"
         drawerTitle={config.siteTitle}
         toolbarTitle={LocalTitle}
         contentClassName="main-content"
@@ -20,7 +21,7 @@ class Navigation extends Component {
         toolbarActions={<ToolbarActions config={config} />}
       >
         <div className="main-container">{children}</div>
-        <Footer userLinks={footerLinks} />
+        <Footer userLinks={!isAboutPage} />
       </NavigationDrawer>
     );
   }

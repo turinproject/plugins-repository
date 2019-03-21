@@ -1,7 +1,8 @@
 require('dotenv').config();
-const config = require('./data/SiteConfig');
+
 const plugins = require('./data/PluginsList');
 const urljoin = require('url-join');
+const config = require('./data/SiteConfig');
 
 const fetch = require('node-fetch');
 const { createHttpLink } = require('apollo-link-http');

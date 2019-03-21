@@ -41,9 +41,11 @@ export const pageQuery = graphql`
           frontmatter {
             title
             tags
+            category
             logo
             date
           }
+          rawMarkdownBody
         }
       }
     }

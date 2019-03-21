@@ -15,10 +15,11 @@ export default class PluginTemplate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mobile: true
+      isMobile: true
     };
     this.handleResize = this.handleResize.bind(this);
   }
+
   componentDidMount() {
     this.handleResize();
     window.addEventListener("resize", this.handleResize);
@@ -30,17 +31,16 @@ export default class PluginTemplate extends React.Component {
 
   handleResize() {
     if (window.innerWidth >= 640) {
-      this.setState({ mobile: false });
+      this.setState({ isMobile: false });
     } else {
-      this.setState({ mobile: true });
+      this.setState({ isMobile: true });
     }
   }
 
   render() {
-    const { mobile } = this.state;
+    const { isMobile } = this.state;
     const { slug } = this.props.pageContext;
-    const expanded = !mobile;
-    const pluginOverlapClass = mobile ? "plugin-overlap-mobile" : "plugin-overlap";
+    const expanded = !isMobile;
     const pluginNode = this.props.data.markdownRemark;
     const plugin = pluginNode.frontmatter;
     if (!plugin.id) {
@@ -50,7 +50,6 @@ export default class PluginTemplate extends React.Component {
       plugin.category_id = config.pluginDefaultCategoryID;
     }
 
-    const coverHeight = mobile ? 180 : 350;
     return (
       <Layout location={this.props.location}>
         <div className="plugin-page md-grid md-grid--no-spacing">
@@ -60,7 +59,7 @@ export default class PluginTemplate extends React.Component {
           </Helmet>
           <SEO pluginPath={slug} pluginNode={pluginNode} pluginSEO />
           <div
-            className={`md-grid md-cell--9 plugin-page-contents mobile-fix ${pluginOverlapClass}`}
+            className="md-grid md-cell--9 plugin-page-contents mobile-fix plugin-overlap"
           >
             <Card className="md-grid md-cell md-cell--12 plugin">
               <CardText className="plugin-body">
@@ -78,8 +77,6 @@ export default class PluginTemplate extends React.Component {
               expanded={expanded}
             />
           </div>
-
-          <PluginSuggestions pluginNode={pluginNode} />
         </div>
       </Layout>
     );
