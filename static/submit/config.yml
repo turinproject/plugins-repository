@@ -11,10 +11,6 @@ collections:
     folder: "content/plugins/submitted"
     create: true
     fields:
-      - {label: "Plugin Name", name: "title", widget: "string"}
-      - {label: "Last Updated", name: "date", widget: "datetime"}
-      - {label: "Logo", name: "logo", widget: "image"}
-      - {label: "Slug", name: "slug", widget: "string"}
-      - {label: "Plugin Type", name: "category", widget: "select", options: ["Generators", "Commands", "Data", "Force Fields"]}
-      - {label: "Keywords", name: "tags", widget: "list"}
-      - {label: "Description", name: "body", widget: "markdown"}
+      - {label: "Github Username", name: "username", widget: "string"}
+      - {label: "Repository URL", name: "gitrepo", widget: "string"}
+      - {label: "Readme.md", name: "readme", widget: "file"}

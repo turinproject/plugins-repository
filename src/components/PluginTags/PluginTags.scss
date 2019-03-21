@@ -1,12 +1,10 @@
 .plugin-preview-tags {
-    margin: 5px 2px 0;
-    cursor: pointer;
+  margin: 5px 2px 0;
+  cursor: pointer;
 }
 
 .plugin-tag-container {
-    display: flex;
-    flex-flow: row wrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  align-self: center;
+  margin: 8px 0;
 }

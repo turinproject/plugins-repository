@@ -1,5 +1,5 @@
-const config = require("./data/SiteConfig");
 const urljoin = require("url-join");
+const config = require("./data/SiteConfig");
 
 const regexExcludeRobots = /^(?!\/(dev-404-page|404|offline-plugin-app-shell-fallback|tags|categories)).*$/;
 

@@ -36,3 +36,13 @@
     color: $md-secondary-color !important;
   }
 }
+
+@media (max-width: 640px) {
+  .plugin-suggestion {
+    .headline-container {
+      h6 {
+        font-size: 16px!important;
+      }
+    }
+  }
+}
