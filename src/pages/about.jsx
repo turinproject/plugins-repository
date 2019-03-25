@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Page from '../templates/page';
-import config from '../../data/SiteConfig';
+
+import Page from 'templates/page';
+import config from 'data/SiteConfig';
 
 class About extends Component {
 
