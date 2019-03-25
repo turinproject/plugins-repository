@@ -1,0 +1,67 @@
+@import "styles/theme.scss";
+
+.contribute-container {
+  max-width: 1170px;
+  margin: 3rem auto 0 auto;
+  padding: 0 3rem;
+
+  > h2 {
+    color: $color-darker-grey;
+    font-weight: $font-weight-bold;
+  }
+
+  > p {
+    font-size: $font-size-default;
+    color: #4d4657;
+  }
+
+  .form-container {
+    display: flex;
+
+    > div {
+      margin: 0;
+      padding: 0;
+
+      form {
+        width: 100%;
+        padding-right: 2rem;
+      }
+    }
+
+    .form-control {
+      font-size: $font-size-default;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-top: 2.5rem;
+      
+      b {
+        width: 23rem;
+        display: inline-block;
+        color: #3e445b;
+      }
+
+      input {
+        width: 100%;
+        height: 3rem;
+        font-size: $font-size-default;
+        padding: 5px 8px;
+        border: 1px solid #e0e1e2;
+        border-radius: 4px;
+        outline: none;
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media (max-width: 840px) {
+    img {
+      display: none;
+    }
+  }
+}
