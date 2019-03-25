@@ -1,6 +1,6 @@
-import React from "react";
-import SearchBar from "../SearchBar";
-import PluginPreview from "../PluginPreview";
+import React from 'react';
+import SearchBar from '../SearchBar';
+import PluginPreview from '../PluginPreview';
 
 class PluginListing extends React.Component {
   getPluginList() {
@@ -24,7 +24,7 @@ class PluginListing extends React.Component {
     return (
       <div className="md-grid md-grid--no-spacing md-cell--middle">
         <SearchBar />
-        <div className="md-grid md-cell--8 mobile-fix">
+        <div className="plugin-container md-grid mobile-fix">
           {pluginList.map(plugin => (
             <PluginPreview key={plugin.title} pluginInfo={plugin} />
           ))}

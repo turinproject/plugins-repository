@@ -1,10 +1,11 @@
-import React, { Component } from "react";
-import Helmet from "react-helmet";
-import Layout from "../layout";
-import Card from "react-md/lib/Cards/Card";
-import CardText from "react-md/lib/Cards/CardText";
-import UserLinks from "../components/UserLinks";
-import config from "../../data/SiteConfig";
+import React, { Component } from 'react';
+import Helmet from 'react-helmet';
+import CardText from 'react-md/lib/Cards/CardText';
+import Card from 'react-md/lib/Cards/Card';
+
+import Layout from 'layout';
+import UserLinks from 'components/UserLinks';
+import config from 'data/SiteConfig';
 
 /**
  * A page is a static page that content contributors should not have control over.

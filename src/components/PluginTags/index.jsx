@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import _ from "lodash";
-import { Link } from "gatsby";
-import Chip from "react-md/lib/Chips";
+import React, { Component } from 'react';
+import _ from 'lodash';
+import { Link } from 'gatsby';
+import './PluginTags.scss';
 
 class PluginTags extends Component {
   render() {
@@ -15,7 +15,9 @@ class PluginTags extends Component {
               style={{ textDecoration: "none" }}
               to={`/tags/${_.kebabCase(tag)}`}
             >
-              <Chip label={tag} className="plugin-preview-tags" />
+              <div className="plugin-preview-tags">
+                <span>#{tag}</span>
+              </div>
             </Link>
           ))}
       </div>

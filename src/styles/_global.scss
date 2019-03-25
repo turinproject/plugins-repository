@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  font-size: 62.5%;
+}
+
 html {
   height: 100%;
 }
@@ -19,23 +23,47 @@ div .mobile-fix {
 
 .main-container,
 .darker-background {
-  background-color: $md-tertiary-color;
+  background-color: $color-light-grey;
+}
+
+.index-container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 a:link {
-  color: $md-secondary-color;
   text-decoration: none;
 }
 
 .avatar {
-  width: 40px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
   object-fit: cover;
   border-radius: 50%;
 }
 
 .main-container, .tag-container, .category-container {
   min-height: calc(100vh - 111px)!important;
+
+  .plugin-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 599px) {
+  .md-grid {
+    width: calc(100% - 16px)!important;
+  }
+}
+
+@media (max-width: 839px) and (min-width: 600px) {
+  .plugin-container {
+    justify-content: center;
+  }
+
+  .searchbar {
+    width: 80%;
+  }
 }
 
 .hidden {

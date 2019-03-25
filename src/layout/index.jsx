@@ -1,9 +1,9 @@
-import React from "react";
-import Helmet from "react-helmet";
-import Navigation from "../components/Navigation";
-import config from "../../data/SiteConfig";
-import "font-awesome/scss/font-awesome.scss";
-import "../styles/theme.scss";
+import React from 'react';
+import Helmet from 'react-helmet';
+import Navigation from 'components/Navigation';
+import config from 'data/SiteConfig';
+import 'font-awesome/scss/font-awesome.scss';
+import 'styles/theme.scss';
 
 export default class PageLayout extends React.Component {
   render() {

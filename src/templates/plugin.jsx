@@ -1,15 +1,15 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { graphql } from "gatsby";
-import Card from "react-md/lib/Cards";
-import CardText from "react-md/lib/Cards/CardText";
-import Layout from "../layout";
-import UserInfo from "../components/UserInfo";
-import PluginTags from "../components/PluginTags";
-import PluginInfo from "../components/PluginInfo";
-import PluginSuggestions from "../components/PluginSuggestions";
-import SEO from "../components/SEO";
-import config from "../../data/SiteConfig";
+import React from 'react';
+import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
+import Card from 'react-md/lib/Cards';
+import CardText from 'react-md/lib/Cards/CardText';
+import Layout from 'layout';
+import UserInfo from 'components/UserInfo';
+import PluginTags from 'components/PluginTags';
+import PluginInfo from 'components/PluginInfo';
+// import PluginSuggestions from 'components/PluginSuggestions';
+import SEO from 'components/SEO';
+import config from 'data/SiteConfig';
 
 export default class PluginTemplate extends React.Component {
   constructor(props) {

@@ -1,9 +1,9 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { graphql } from "gatsby";
-import PluginListing from "../components/PluginListing";
-import Layout from "../layout";
-import config from "../../data/SiteConfig";
+import React from 'react';
+import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
+import PluginListing from 'components/PluginListing';
+import Layout from 'layout';
+import config from 'data/SiteConfig';
 
 export default class CategoryTemplate extends React.Component {
   render() {
@@ -14,7 +14,7 @@ export default class CategoryTemplate extends React.Component {
         location={this.props.location}
         title={category.charAt(0).toUpperCase() + category.slice(1)}
       >
-        <div className="category-container">
+        <div className="index-container">
           <Helmet>
             <title>
               {`Plugins in category "${category}" | ${config.siteTitle}`}

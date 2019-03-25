@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import UserLinks from "../UserLinks";
+import React, { Component } from 'react';
+import UserLinks from 'components/UserLinks';
 
 class Toolbar extends Component {
   render() {
