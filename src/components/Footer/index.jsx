@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import UserLinks from 'components/UserLinks';
 import config from 'data/SiteConfig';
 
-import './Footer.scss';
-
 class Footer extends Component {
   render() {
     const { userLinks } = this.props;

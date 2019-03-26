@@ -7,8 +7,6 @@ import StarRatings from 'react-star-ratings';
 import config from 'data/SiteConfig';
 import PluginTags from 'components/PluginTags';
 
-import './PluginPreview.scss';
-
 class PluginPreview extends Component {
   render() {
     const { pluginInfo } = this.props;

@@ -1,13 +1,22 @@
-@import 'styles/theme.scss';
+$color-primary: #05B4E9;
+$color-secondary: #201C1D;
+$tertiary-color: #5a5d5e;
+
+$color-lighter-grey: #f8f8f8;
+$color-light-grey: #f1f1f1;
+$color-grey: #cfcfcf;
+$color-medium-grey: #e0e0e0;
+$color-dark-grey: #888;
+
+$color-white: #fff;
 
 #cardItem {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid #e0e0e0;
+  border: 1px solid $color-grey;
   border-radius: 3px;
   background: $color-white;
-  margin: 5px auto;
   padding: 0;
 
   .card-content {
@@ -28,7 +37,7 @@
       width: calc(100% - 215px);
 
       h3 {
-        color: $primary-color;
+        color: $color-primary;
         font-size: 2rem;
         margin-bottom: 8px;
         width: 100%;
@@ -37,8 +46,8 @@
       }
   
       p {
-        color: $secondary-color;
-        font-size: $font-size-default;
+        color: $color-secondary;
+        font-size: 1.4rem;
         height: 4rem;
         line-height: 2rem;
         overflow: hidden;
@@ -54,8 +63,8 @@
       .plugin-install {
         height: unset;
         min-width: 95px;
-        background: $color-light-grey;
-        border: 1px solid #e0e0e0;
+        background: $color-lighter-grey;
+        border: 1px solid $color-medium-grey;
         font-size: 1.3rem;
         padding: 6px 8px 4px;
         color: $color-dark-grey;
@@ -70,9 +79,9 @@
   
       span {
         display: inline-block;
-        color: $primary-color;
+        color: $color-primary;
         font-size: 1.3rem;
-        font-weight: $font-weight-medium;
+        font-weight: 1.6rem;
         margin-top: 6px;
         cursor: pointer;
       }
@@ -83,9 +92,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: $color-medium-grey;
-    padding: 7px 20px 5px;
-    border: 1px solid #e0e0e0;
+    background: $color-light-grey;
+    padding: 3px 20px 0;
+    border: 1px solid $color-grey;
     border-width: 1px 0 0;
 
     .plugin-poster {
@@ -98,7 +107,7 @@
         margin-left: 1rem;
 
         span {
-          color: $primary-color;
+          color: $color-primary;
           margin-left: 0;
         }
       }

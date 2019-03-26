@@ -1,11 +1,13 @@
+$primary-color: #05B4E9;
+
 .primary-button {
   background: $primary-color;
   color: white;
-  font-size: $font-size-default;
+  font-size: 1.4rem;
   padding: 5px 14px;
-  font-weight: $font-weight-bold;
+  font-weight: bold;
   border-radius: 4px;
   outline: none;
-  border-color: #05b4e9;
+  border-color: $primary-color;
   cursor: pointer;
 }

@@ -1,4 +1,7 @@
-@import "styles/theme.scss";
+$color-light-black: #3e445b;
+$color-light-brown: #4d4657;
+$color-darker-grey: #666;
+$color-light-white: #e0e1e2;
 
 .contribute-container {
   max-width: 1170px;
@@ -7,17 +10,17 @@
 
   > h2 {
     color: $color-darker-grey;
-    font-weight: $font-weight-bold;
+    font-weight: bold;
   }
 
   > p {
-    font-size: $font-size-default;
-    color: #4d4657;
+    font-size: 1.4rem;
+    color: $color-light-brown;
   }
 
   .form-container {
     display: flex;
-    width: 100%!important;
+    width: 100% !important;
     margin: 0;
     padding: 0;
 
@@ -31,7 +34,7 @@
     }
 
     .form-control {
-      font-size: $font-size-default;
+      font-size: 1.4rem;
       display: flex;
       align-items: center;
       width: 100%;
@@ -40,15 +43,15 @@
       b {
         width: 23rem;
         display: inline-block;
-        color: #3e445b;
+        color: $color-light-black;
       }
 
       input {
         width: 100%;
         height: 3rem;
-        font-size: $font-size-default;
+        font-size: 1.4rem;
         padding: 5px 8px;
-        border: 1px solid #e0e1e2;
+        border: 1px solid $color-light-white;
         border-radius: 4px;
         outline: none;
       }
