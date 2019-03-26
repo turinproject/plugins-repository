@@ -1,25 +1,89 @@
-.plugin-info {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  margin-bottom: 30px;
-  margin-top: 10px;
+@import 'styles/theme.scss';
 
-  >div {
-    margin-right: 20px;
-  }
+.plugin-detail-page {
+  width: 100%;
+  margin-top: 5rem!important;
+  padding: 0 2rem;
 
-  .category-link {
-    margin-right: 20px;
-  }
+  .plugin-header {
+    background: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1.5rem 3rem;
 
-  >div.md-card-title {
-    >div.md-avatar--card {
-      border: none;
+    img {
+      width: 6rem;
+      border-radius: 50%;
     }
 
-    h2.md-card-title--title {
-      align-self: flex-start;
+    .plugin-info {
+      margin-left: 2rem;
+
+      h2 {
+        color: #444;
+        margin-bottom: 5px;
+        font-size: 2.8rem;
+      }
+
+      p {
+        color: $color-dark-grey;
+        font-size: $font-size-medium;
+
+        span {
+          color: #589fd3;
+        }
+      }
+    }
+  }
+
+  .plugin-body {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem!important;
+    padding: 0;
+
+    > div {
+      background: $color-white;
+      padding: 3rem 2rem;
+      margin: 0;
+      margin-bottom: 2rem;
+    }
+
+    .plugin-description {
+      h2 {
+        color: #333;
+      }
+
+      div p {
+        font-size: 1.5rem;
+        color: $color-darker-grey;
+      }
+    }
+
+    .plugin-detail {
+      .detail-info {
+        display: flex;
+        justify-content: space-between;
+        font-size: $font-size-default;
+        margin-top: 1.5rem;
+
+        span {
+          color: grey;
+        }
+
+        label {
+          color: $color-darker-grey;
+          font-weight: $font-weight-bold;
+          font-size: $font-size-default;
+        }
+      }
+
+      hr {
+        background: $color-medium-grey;
+        height: 1px;
+        border: none;
+      }
     }
   }
 }

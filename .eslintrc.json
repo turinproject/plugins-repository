@@ -13,7 +13,9 @@
       "components": [ "Link" ],
       "specialLink": [ "hrefLeft", "hrefRight", "to" ],
       "aspects": [ "noHref", "invalidHref", "preferButton" ]
-    }]
+    }],
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/label-has-for": "off"
   },
   "settings": {
     "import/core-modules": []

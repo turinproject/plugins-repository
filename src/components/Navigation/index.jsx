@@ -4,8 +4,6 @@ import ToolbarActions from 'components/ToolbarActions';
 import Footer from 'components/Footer';
 import GetNavList from './NavList';
 
-import './Navigation.scss';
-
 class Navigation extends Component {
   render() {
     const { children, config, LocalTitle } = this.props;

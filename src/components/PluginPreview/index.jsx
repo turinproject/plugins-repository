@@ -7,8 +7,6 @@ import StarRatings from 'react-star-ratings';
 import config from 'data/SiteConfig';
 import PluginTags from 'components/PluginTags';
 
-import './PluginPreview.scss';
-
 class PluginPreview extends Component {
   render() {
     const { pluginInfo } = this.props;
@@ -29,8 +27,8 @@ class PluginPreview extends Component {
             <p>{pluginInfo.description}</p>
           </div>
           <div className="card-action">
-            <Button raised className="plugin-install">Get Plugin</Button>
             <Link to={pluginInfo.path}>
+              <Button raised className="plugin-install">Get Plugin</Button>
               <span>More Detiails</span>
             </Link>
           </div>
