@@ -3,7 +3,7 @@
 .contribute-container {
   max-width: 1170px;
   margin: 3rem auto 0 auto;
-  padding: 0 3rem;
+  padding: 0 2rem;
 
   > h2 {
     color: $color-darker-grey;
@@ -17,6 +17,9 @@
 
   .form-container {
     display: flex;
+    width: 100%!important;
+    margin: 0;
+    padding: 0;
 
     > div {
       margin: 0;
@@ -24,7 +27,6 @@
 
       form {
         width: 100%;
-        padding-right: 2rem;
       }
     }
 
