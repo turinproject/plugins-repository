@@ -16,7 +16,7 @@ class PluginPreview extends Component {
         <div className="card-content">
           <img
             src={pluginInfo.logo}
-            alt="featued"
+            alt="featured"
             className="featured-image"
             onError={e => {e.target.src = config.siteLogo}}
           />
@@ -28,7 +28,7 @@ class PluginPreview extends Component {
           </div>
           <div className="card-action">
             <Link to={pluginInfo.path}>
-              <Button raised className="plugin-install">Get Plugin</Button>
+              <Button raised className="plugin-install default-button">Get Plugin</Button>
               <span>More Detiails</span>
             </Link>
           </div>
@@ -37,9 +37,9 @@ class PluginPreview extends Component {
         <div className="card-footer">
           <div className="plugin-poster">
             <img
-              src="/assets/profile.jpg"
-              className="avatar"
+              src="/assets/img/profile.png"
               alt="avatar"
+              className="avatar"
             />
             <span>By <span>Automatic</span></span>
           </div>

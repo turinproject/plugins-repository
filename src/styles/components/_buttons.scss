@@ -1,4 +1,8 @@
 $primary-color: #05B4E9;
+$color-lighter-grey: #f8f8f8;
+$color-medium-grey: #e0e0e0;
+$color-dark-grey: #888;
+$color-grey: #cfcfcf;
 
 .primary-button {
   background: $primary-color;
@@ -10,4 +14,19 @@ $primary-color: #05B4E9;
   outline: none;
   border-color: $primary-color;
   cursor: pointer;
+}
+
+.default-button {
+  background: $color-lighter-grey;
+  color: $color-dark-grey;
+  font-size: 1.4rem;
+  padding: 6px 10px 4px;
+  border: 1px solid $color-medium-grey;
+  border-radius: 3px;
+  box-shadow: none;
+  text-transform: uppercase;
+
+  &:active {
+    box-shadow: 0 1px 3px 0 $color-grey;
+  }
 }

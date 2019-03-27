@@ -1,13 +1,8 @@
 $color-primary: #05B4E9;
 $color-secondary: #201C1D;
 $tertiary-color: #5a5d5e;
-
-$color-lighter-grey: #f8f8f8;
 $color-light-grey: #f1f1f1;
 $color-grey: #cfcfcf;
-$color-medium-grey: #e0e0e0;
-$color-dark-grey: #888;
-
 $color-white: #fff;
 
 #cardItem {
@@ -39,6 +34,7 @@ $color-white: #fff;
       h3 {
         color: $color-primary;
         font-size: 2rem;
+        font-weight: bold;
         margin-bottom: 8px;
         width: 100%;
         text-overflow: ellipsis;
@@ -66,28 +62,15 @@ $color-white: #fff;
       }
 
       .plugin-install {
-        height: unset;
-        min-width: 95px;
-        background: $color-lighter-grey;
-        border: 1px solid $color-medium-grey;
-        font-size: 1.3rem;
-        padding: 6px 8px 4px;
-        color: $color-dark-grey;
-        border-radius: 3px;
-        box-shadow: none;
-        text-transform: capitalize;
-  
-        &:active {
-          box-shadow: 0 1px 3px 0 $color-grey;
-        }
+        font-weight: bold;
       }
   
       span {
         display: inline-block;
         color: $color-primary;
         font-size: 1.3rem;
-        font-weight: 1.6rem;
-        margin-top: 6px;
+        font-weight: bold;
+        margin: 6px 3px 0 0;
         cursor: pointer;
       }
     }

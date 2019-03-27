@@ -41,7 +41,7 @@ class Contribute extends Component {
                 </form>
               </Cell>
               <Cell size={4}>
-                <img src="/assets/contribution.png" alt="contribution" />
+                <img src="/assets/img/contribution.png" alt="contribution" />
               </Cell>
             </Grid>
           </div>
