@@ -8,12 +8,16 @@
     "react/no-danger": "off",
     "react/jsx-one-expression-per-line": "off",
     "react/no-unescaped-entities": "off",
+    "react/no-array-index-key": "off",
     "import/no-unresolved": "off",
     "jsx-a11y/anchor-is-valid": [ "error", {
       "components": [ "Link" ],
       "specialLink": [ "hrefLeft", "hrefRight", "to" ],
       "aspects": [ "noHref", "invalidHref", "preferButton" ]
-    }]
+    }],
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/label-has-for": "off",
+    "class-methods-use-this": "off"
   },
   "settings": {
     "import/core-modules": []

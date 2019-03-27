@@ -1,7 +1,7 @@
 ---
 title: Sample Plugin
 date: '2017-01-01'
-logo: /assets/starter-logo-1024.png
+logo: /assets/img/starter-logo-1024.png
 slug: sample-plugin
 category: generators
 tags:

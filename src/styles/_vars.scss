@@ -8,14 +8,24 @@ $primary-color: #05B4E9;
 $secondary-color: #201C1D;
 $tertiary-color: #5a5d5e;
 
-$color-grey: #b8b8b8;
+$color-grey: #cfcfcf;
 $color-light-grey: #f8f8f8;
-$color-medium-grey: #eee;
+$color-lighter-grey: #f8f8f8;
+
+$color-medium-grey: #e0e0e0;
 $color-dark-grey: #888;
 $color-darker-grey: #666;
 
 $color-black: #000;
+$color-light-black: #3e445b;
+$color-lighter-black: #444;
+
+$color-dark-blue: #418ca2;
+
+$color-light-brown: #4d4657;
+
 $color-white: #fff;
+$color-light-white: #e0e1e2;
 
 // Font Size & Weight
 
@@ -30,3 +40,5 @@ $font-weight-semibold: $md-font-semibold;
 $font-weight-medium: $md-font-medium;
 $font-weight-regular: $md-font-regular;
 $font-weight-light: $md-font-light;
+
+$phone-status-bar-height: 24px - 12px;
