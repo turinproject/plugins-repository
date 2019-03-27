@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import TextField from 'react-md/lib/TextFields';
 import FontIcon from 'react-md/lib/FontIcons';
 
-import './SearchBar.scss';
-
 class SearchBar extends Component {
   render() {
     // const { searchTerm } = this.props;

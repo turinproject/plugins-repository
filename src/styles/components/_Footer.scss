@@ -1,27 +1,10 @@
-@import "styles/theme.scss";
+$tertiary-color: #5a5d5e;
 
 .footer {
   justify-content: center;
   align-content: center;
   background-color: $tertiary-color;
   padding: 10px 5px 5px;
-
-  .based-on {
-    display: flex;
-
-    @media (max-width: 640px - 1px) {
-      display: none;
-    }
-
-    flex: 1;
-    justify-content: flex-end;
-  }
-
-  h4 {
-    color: $md-secondary-color;
-    text-align: center;
-    margin: 0;
-  }
 }
 
 .footer-fixed {

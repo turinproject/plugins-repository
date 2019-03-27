@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Button from 'react-md/lib/Buttons';
 
-import './UserLinks.scss';
-
 class UserLinks extends Component {
   getLinkElements() {
     const { userLinks } = this.props.config;

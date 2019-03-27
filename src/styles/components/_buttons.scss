@@ -1,0 +1,13 @@
+$primary-color: #05B4E9;
+
+.primary-button {
+  background: $primary-color;
+  color: white;
+  font-size: 1.4rem;
+  padding: 5px 14px;
+  font-weight: bold;
+  border-radius: 4px;
+  outline: none;
+  border-color: $primary-color;
+  cursor: pointer;
+}
