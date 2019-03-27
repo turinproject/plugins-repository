@@ -56,21 +56,8 @@
       }
 
       .plugin-install {
-        height: unset;
-        min-width: 95px;
-        background: $color-lighter-grey;
-        border: 1px solid $color-medium-grey;
-        font-size: 1.3rem;
-        padding: 6px 8px 4px;
-        color: $color-dark-grey;
-        border-radius: 3px;
-        box-shadow: none;
-        text-transform: capitalize;
-
-        &:active {
-          box-shadow: 0 1px 3px 0 $color-grey;
-        }
         font-weight: bold;
+        text-transform: uppercase;
       }
 
       span {

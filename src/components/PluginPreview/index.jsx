@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
 import moment from 'moment';
-import { Button } from 'react-md';
 import StarRatings from 'react-star-ratings';
 
 import config from 'data/SiteConfig';
@@ -28,7 +27,7 @@ class PluginPreview extends Component {
           </div>
           <div className="card-action">
             <Link to={pluginInfo.path}>
-              <Button raised className="plugin-install default-button">Get Plugin</Button>
+              <button type="button" className="plugin-install default-button">Get Plugin</button>
               <span>More Detiails</span>
             </Link>
           </div>

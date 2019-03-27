@@ -6,8 +6,13 @@
   font-weight: bold;
   border-radius: 4px;
   outline: none;
+  border: 1px solid $primary-color;
   border-color: $primary-color;
   cursor: pointer;
+
+  &:active {
+    box-shadow: 0 1px 3px 0 $primary-color;
+  }
 }
 
 .default-button {
@@ -18,7 +23,8 @@
   border: 1px solid $color-medium-grey;
   border-radius: 3px;
   box-shadow: none;
-  text-transform: uppercase;
+  outline: none;
+  cursor: pointer;
 
   &:active {
     box-shadow: 0 1px 3px 0 $color-grey;

@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
 import moment from 'moment';
-import { Grid, Cell, Button, FontIcon } from 'react-md';
+import { Grid, Cell, FontIcon } from 'react-md';
 
 import config from 'data/SiteConfig';
 import Layout from 'layout';
@@ -84,7 +84,7 @@ export default class PluginTemplate extends React.Component {
               </Cell>
 
               <Cell size={4} tabletSize={12} className="plugin-detail">
-                <Button raised className="default-button">Get Plugin</Button>
+                <button type="button" className="default-button">Get Plugin</button>
                 <div className="detail-info">
                   <a href="https://github.com">
                     <FontIcon iconClassName="fa fa-github" />
