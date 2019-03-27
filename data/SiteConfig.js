@@ -3,7 +3,7 @@ module.exports = {
   siteTitleShort: "Plugins", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   siteTitleAlt: "Plugins Repository", // Alternative site title for SEO.
   siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
-  defaultAvatar: "/assets/img/profile.png", // Default Profile image for users without avatar.
+  defaultAvatar: "/assets/img/user.png", // Default Profile image for users without avatar.
   siteUrl: "https://www.turinproject.org", // Domain of your website without pathPrefix.
   pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/gatsby-material-starter/.
   siteDescription: "A plugin repository for Avogadro 2.", // Website description used for meta description tag.

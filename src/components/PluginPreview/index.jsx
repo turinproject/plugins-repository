@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
 import moment from 'moment';
-import StarRatings from 'react-star-ratings';
+// import StarRatings from 'react-star-ratings';
 
 import config from 'data/SiteConfig';
 import PluginTags from 'components/PluginTags';
@@ -14,7 +14,7 @@ class PluginPreview extends Component {
       <div key={pluginInfo.path} id="cardItem" className="md-grid md-cell md-cell--6">
         <div className="card-content">
           <img
-            src={pluginInfo.logo}
+            src={pluginInfo.logo ? pluginInfo.logo : config.siteLogo}
             alt="featured"
             className="featured-image"
             onError={e => {e.target.src = config.siteLogo}}
@@ -36,7 +36,7 @@ class PluginPreview extends Component {
         <div className="card-footer">
           <div className="plugin-poster">
             <img
-              src="/assets/img/profile.png"
+              src={config.defaultAvatar}
               alt="avatar"
               className="avatar"
             />
@@ -47,12 +47,12 @@ class PluginPreview extends Component {
               <b>Update Date</b>
               {moment(pluginInfo.date).format(config.dateFormat)}
             </span>
-            <StarRatings
+            {/* <StarRatings
               rating={4.5}
               starDimension="16px"
               starSpacing="0px"
               starRatedColor="#feb802"
-            />
+            /> */}
           </div>
         </div>
       </div>
