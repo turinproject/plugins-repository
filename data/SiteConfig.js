@@ -14,22 +14,31 @@ module.exports = {
       options: [
         {
           id: 'generators',
-          name: 'Generators'
+          name: 'Generators',
+          logo: ''
         },
         {
           id: 'commands',
-          name: 'commands'
+          name: 'Commands'
         },{
           id: 'data',
-          name: 'Data'
+          name: 'Data',
+          logo: ''
         },
         {
           id: 'force-fields',
-          name: 'Force Fields'
+          name: 'Force Fields',
+          logo: ''
+        },
+        {
+          id: 'translations',
+          name: 'Translations',
+          logo: ''
         },
         {
           id: 'other',
-          name: 'Other'
+          name: 'Other',
+          logo: ''
         },
       ]
     },

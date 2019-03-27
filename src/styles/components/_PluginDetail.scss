@@ -57,7 +57,9 @@
         color: $color-light-black;
         font-weight: bold;
       }
-
+      img {
+        max-width: 100%;
+      }
       div p {
         font-size: 1.5rem;
         color: $color-darker-grey;

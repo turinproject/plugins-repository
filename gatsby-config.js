@@ -1,8 +1,10 @@
 require('dotenv').config();
 
 const urljoin = require('url-join');
+/*
 const fetch = require('node-fetch');
 const { createHttpLink } = require('apollo-link-http');
+*/
 const path = require('path');
 
 const config = require('./data/SiteConfig');
@@ -32,7 +34,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "plugins",
-        path: `${__dirname}/content/plugins/submitted/`
+        path: `${__dirname}/content/plugins/`
       }
     },
     {
@@ -118,21 +120,24 @@ module.exports = {
         ]
       }
     },
+    /*
     {
       resolve: "gatsby-source-graphql",
       options: {
         typeName: "GitHub",
         fieldName: "github",
-        createLink: () =>
+        createLink: (pluginOptions) => {
           createHttpLink({
-            uri: `https://api.github.com/graphql`,
+            uri: `${process.env.GATSBY_GITHUB_GRAPHQL_URL}`,
             headers: {
-              Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+              'Authorization': `bearer ${process.env.GITHUB_TOKEN}`,
             },
             fetch,
-          }),
+          })
+        }
       },
     },
+    */
     "gatsby-plugin-offline"
   ]
 };
