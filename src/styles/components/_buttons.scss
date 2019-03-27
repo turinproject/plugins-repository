@@ -1,5 +1,3 @@
-$primary-color: #05B4E9;
-
 .primary-button {
   background: $primary-color;
   color: white;
@@ -10,4 +8,19 @@ $primary-color: #05B4E9;
   outline: none;
   border-color: $primary-color;
   cursor: pointer;
+}
+
+.default-button {
+  background: $color-lighter-grey;
+  color: $color-dark-grey;
+  font-size: 1.4rem;
+  padding: 6px 10px 4px;
+  border: 1px solid $color-medium-grey;
+  border-radius: 3px;
+  box-shadow: none;
+  text-transform: uppercase;
+
+  &:active {
+    box-shadow: 0 1px 3px 0 $color-grey;
+  }
 }

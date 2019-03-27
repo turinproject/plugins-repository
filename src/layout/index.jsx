@@ -4,7 +4,6 @@ import Navigation from 'components/Navigation';
 import config from 'data/SiteConfig';
 import 'font-awesome/scss/font-awesome.scss';
 import 'styles/theme.scss';
-import 'styles/components/_index.scss';
 
 export default class PageLayout extends React.Component {
   render() {

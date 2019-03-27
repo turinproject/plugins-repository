@@ -1,14 +1,3 @@
-$color-primary: #05B4E9;
-$color-secondary: #201C1D;
-$tertiary-color: #5a5d5e;
-
-$color-lighter-grey: #f8f8f8;
-$color-light-grey: #f1f1f1;
-$color-grey: #cfcfcf;
-$color-medium-grey: #e0e0e0;
-$color-dark-grey: #888;
-
-$color-white: #fff;
 
 #cardItem {
   display: flex;
@@ -37,16 +26,17 @@ $color-white: #fff;
       width: calc(100% - 215px);
 
       h3 {
-        color: $color-primary;
+        color: $primary-color;
         font-size: 2rem;
+        font-weight: bold;
         margin-bottom: 8px;
         width: 100%;
         text-overflow: ellipsis;
         overflow: hidden;
       }
-  
+
       p {
-        color: $color-secondary;
+        color: $secondary-color;
         font-size: 1.4rem;
         height: 4rem;
         line-height: 2rem;
@@ -60,6 +50,11 @@ $color-white: #fff;
       flex-direction: column;
       text-align: right;
 
+      a {
+        display: flex;
+        flex-direction: column;
+      }
+
       .plugin-install {
         height: unset;
         min-width: 95px;
@@ -71,18 +66,19 @@ $color-white: #fff;
         border-radius: 3px;
         box-shadow: none;
         text-transform: capitalize;
-  
+
         &:active {
           box-shadow: 0 1px 3px 0 $color-grey;
         }
+        font-weight: bold;
       }
-  
+
       span {
         display: inline-block;
-        color: $color-primary;
+        color: $primary-color;
         font-size: 1.3rem;
-        font-weight: 1.6rem;
-        margin-top: 6px;
+        font-weight: bold;
+        margin: 6px 3px 0 0;
         cursor: pointer;
       }
     }
@@ -107,7 +103,7 @@ $color-white: #fff;
         margin-left: 1rem;
 
         span {
-          color: $color-primary;
+          color: $primary-color;
           margin-left: 0;
         }
       }
