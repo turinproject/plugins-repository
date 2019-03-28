@@ -30,16 +30,11 @@ module.exports = {
         {
           id: 'translations',
           name: 'Translations',
-<<<<<<< HEAD
         },
         {
           id: 'other',
           name: 'Other',
         },
-=======
-          logo: ''
-        }
->>>>>>> 6cf62020d2205724ce3439630abadd272ed174ce
       ]
     },
     {
