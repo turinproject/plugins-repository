@@ -34,12 +34,7 @@ module.exports = {
           id: 'translations',
           name: 'Translations',
           logo: ''
-        },
-        {
-          id: 'other',
-          name: 'Other',
-          logo: ''
-        },
+        }
       ]
     },
     {
