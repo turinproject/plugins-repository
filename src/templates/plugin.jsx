@@ -2,19 +2,11 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
 import moment from 'moment';
-import { Grid, Cell, Button, FontIcon } from 'react-md';
+import { Grid, Cell, FontIcon } from 'react-md';
 
 import config from 'data/SiteConfig';
 import Layout from 'layout';
 import SEO from 'components/SEO';
-
-const dummyContributors = [
-  {id: 1, name: 'James K', img_url: '/assets/img/profile1.jpg'},
-  {id: 2, name: 'Michelle', img_url: '/assets/img/profile2.jpg'},
-  {id: 3, name: 'Sasha M', img_url: '/assets/img/profile3.jpg'},
-  {id: 4, name: 'Natasha', img_url: '/assets/img/profile4.jpg'},
-  {id: 5, name: 'John Doe', img_url: '/assets/img/profile5.jpg'},
-]
 
 export default class PluginTemplate extends React.Component {
   constructor() {
@@ -30,16 +22,15 @@ export default class PluginTemplate extends React.Component {
     ))
   }
 
-  renderContributors() {
-    return dummyContributors.map(contributor => (
-      <div key={contributor.id}>
+  renderContributors(contributors) {
+    return contributors.map((contributor, index) => (
+      <div key={index}>
         <img
-          src={contributor.img_url}
+          src={config.defaultAvatar}
           alt="avatar"
           className="avatar"
-          onError={e => {e.target.src = config.defaultAvatar}}
         />
-        <span>{contributor.name}</span>
+        <span>{contributor}</span>
       </div>
     ))
   }
@@ -88,9 +79,9 @@ export default class PluginTemplate extends React.Component {
               </Cell>
 
               <Cell size={4} tabletSize={12} className="plugin-detail">
-                <Button raised className="default-button">Get Plugin</Button>
+                <button type="button" className="default-button">Get Plugin</button>
                 <div className="detail-info">
-                  <a href="https://github.com">
+                  <a href={plugin.url}>
                     <FontIcon iconClassName="fa fa-github" />
                     <span>Visit Github repository</span>
                   </a>
@@ -113,7 +104,7 @@ export default class PluginTemplate extends React.Component {
 
                 <div className="contributors">
                   <h3>Contributors</h3>
-                  {this.renderContributors()}
+                  {this.renderContributors(plugin.contributors)}
                 </div>
               </Cell>
             </Grid>
@@ -131,9 +122,11 @@ export const pageQuery = graphql`
       frontmatter {
         title
         logo
+        url
         date
         category
         tags
+        contributors
       }
       fields {
         slug

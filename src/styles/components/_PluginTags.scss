@@ -1,15 +1,16 @@
 .plugin-preview-tags {
+  display: inline-block;
   color: $primary-color;
   font-size: 1.4rem;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
   padding: 3px 8px;
-  margin-right: 5px;
+  margin: 0 5px 5px 0;
   cursor: pointer;
 }
 
 .plugin-tag-container {
-  display: flex;
+  display: block;
   width: calc(100% - 110px);
   align-self: flex-end;
   padding: 10px 0;
