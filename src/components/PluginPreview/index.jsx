@@ -10,12 +10,12 @@ import PluginTags from 'components/PluginTags';
 class PluginPreview extends Component {
   render() {
     const { pluginInfo } = this.props;
-
+    const logo = pluginInfo.logo ? pluginInfo.logo : `/logos/${pluginInfo.category}.png`;
     return (
       <div key={pluginInfo.path} id="cardItem" className="md-grid md-cell md-cell--6">
         <div className="card-content">
           <img
-            src={pluginInfo.logo}
+            src={logo}
             alt="featured"
             className="featured-image"
             onError={e => {e.target.src = config.siteLogo}}

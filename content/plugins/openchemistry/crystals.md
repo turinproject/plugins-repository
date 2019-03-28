@@ -28,7 +28,7 @@ All files are available in the public domain, although most include citation inf
 for the original structure.
 
 All Zeolites are available from the [International Zeolite Association (IZA)
-Structure Commission](http://www.iza-structure.org/databases/).
+Structure Commission](https://www.iza-structure.org/databases/).
 
 All other crystal structures are available through the [Crystallographic Open
-Database](http://crystallography.net/cod/).
+Database](https://crystallography.net/cod/).

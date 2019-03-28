@@ -11,12 +11,13 @@ class PluginInfo extends Component {
   render() {
     const { pluginNode } = this.props;
     const plugin = pluginNode.frontmatter;
+    const logo = plugin.logo ? plugin.logo : `/logos/${plugin.category}.png`;
     return (
       <div className="plugin-info">
         <CardTitle
           avatar={(
             <img
-              src={plugin.logo}
+              src={logo}
               alt="avatar"
               style={{ width: '40px', height: '40px' }}
               onError={e => {e.target.src = config.siteLogo}}
