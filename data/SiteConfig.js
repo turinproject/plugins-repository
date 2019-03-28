@@ -2,7 +2,7 @@ module.exports = {
   siteTitle: "Turin Plugins Repository", // Site title.
   siteTitleShort: "Plugins", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   siteTitleAlt: "Plugins Repository", // Alternative site title for SEO.
-  siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
+  siteLogo: "/logos/other.png", // Logo used for SEO and manifest.
   defaultAvatar: "/assets/img/profile.png", // Default Profile image for users without avatar.
   siteUrl: "https://www.turinproject.org", // Domain of your website without pathPrefix.
   pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/gatsby-material-starter/.
@@ -15,7 +15,6 @@ module.exports = {
         {
           id: 'generators',
           name: 'Generators',
-          logo: ''
         },
         {
           id: 'commands',
@@ -23,22 +22,18 @@ module.exports = {
         },{
           id: 'data',
           name: 'Data',
-          logo: ''
         },
         {
           id: 'force-fields',
           name: 'Force Fields',
-          logo: ''
         },
         {
           id: 'translations',
           name: 'Translations',
-          logo: ''
         },
         {
           id: 'other',
           name: 'Other',
-          logo: ''
         },
       ]
     },

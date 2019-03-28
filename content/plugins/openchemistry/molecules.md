@@ -45,6 +45,6 @@ Common molecule fragments including a variety of organic functional groups:
 - thiols
 
 All molecules are made available the BSD license. Most are from the
-[Blue Obelisk Chemical Structures](http://chem-file.sourceforge.net/) set.
+[Blue Obelisk Chemical Structures](https://chem-file.sourceforge.net/) set.
 Where possible, optimized geometries are made available using the
 [Pitt Quantum Repository](https://pqr.pitt.edu/)

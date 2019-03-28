@@ -73,15 +73,15 @@ documentation. Our API is [documented using Doxygen][Doxygen] with updated
 documentation generated nightly. We have several [mailing lists][MailingLists]
 to coordinate development and to provide support.
 
-  [Avogadro2Logo]: http://openchemistry.org/files/logos/avogadro2.png "Avogadro2"
-  [OpenChemistry]: http://openchemistry.org/ "Open Chemistry Project"
-  [OpenChemistryLogo]: http://openchemistry.org/files/logos/openchem128.png "Open Chemistry"
-  [Kitware]: http://kitware.com/ "Kitware, Inc."
-  [KitwareLogo]: http://www.kitware.com/img/small_logo_over.png "Kitware"
-  [Avogadro1]: http://avogadro.openmolecules.net/ "Avogadro 1"
-  [Dashboard]: http://cdash.openchemistry.org/index.php?project=AvogadroApp "Avogadro Dashboard"
-  [Development]: http://wiki.openchemistry.org/Development "Development guide"
-  [Projects]: http://projects.openchemistry.org/ "Project trackers"
-  [Wiki]: http://wiki.openchemistry.org/ "Open Chemistry wiki"
-  [Doxygen]: http://doc.openchemistry.org/avogadrolibs/api/ "API documentation"
-  [MailingLists]: http://openchemistry.org/OpenChemistry/help/mailing.html
+  [Avogadro2Logo]: https://openchemistry.org/files/logos/avogadro2.png "Avogadro2"
+  [OpenChemistry]: https://openchemistry.org/ "Open Chemistry Project"
+  [OpenChemistryLogo]: https://openchemistry.org/files/logos/openchem128.png "Open Chemistry"
+  [Kitware]: https://kitware.com/ "Kitware, Inc."
+  [KitwareLogo]: https://www.kitware.com/img/small_logo_over.png "Kitware"
+  [Avogadro1]: https://avogadro.openmolecules.net/ "Avogadro 1"
+  [Dashboard]: https://cdash.openchemistry.org/index.php?project=AvogadroApp "Avogadro Dashboard"
+  [Development]: https://wiki.openchemistry.org/Development "Development guide"
+  [Projects]: https://projects.openchemistry.org/ "Project trackers"
+  [Wiki]: https://wiki.openchemistry.org/ "Open Chemistry wiki"
+  [Doxygen]: https://doc.openchemistry.org/avogadrolibs/api/ "API documentation"
+  [MailingLists]: https://openchemistry.org/OpenChemistry/help/mailing.html
