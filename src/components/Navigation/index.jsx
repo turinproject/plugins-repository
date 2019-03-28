@@ -11,7 +11,7 @@ class Navigation extends Component {
     return (
       <NavigationDrawer
         id="navbar"
-        drawerTitle={config.siteTitle}
+        drawerTitle={config.siteTitleShort}
         toolbarTitle={LocalTitle}
         contentClassName="main-content"
         navItems={GetNavList(config)}
