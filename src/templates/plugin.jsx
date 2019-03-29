@@ -4,9 +4,10 @@ import { graphql, Link } from 'gatsby';
 import moment from 'moment';
 import { Grid, Cell, FontIcon } from 'react-md';
 
-import config from 'data/SiteConfig';
 import Layout from 'layout';
 import SEO from 'components/SEO';
+import config from 'data/SiteConfig';
+import Helpers from 'utils/Helpers';
 
 export default class PluginTemplate extends React.Component {
   constructor() {
@@ -68,7 +69,7 @@ export default class PluginTemplate extends React.Component {
               />
               <div className="plugin-info">
                 <h2>{plugin.title}</h2>
-                <p><span>{plugin.category}</span></p>
+                <p><span>{Helpers.getCategoryName(plugin.category)}</span></p>
               </div>
             </Cell>
 

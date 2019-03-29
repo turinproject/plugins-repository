@@ -6,6 +6,7 @@ import { Link } from 'gatsby';
 import moment from 'moment';
 import _ from 'lodash';
 import config from 'data/SiteConfig';
+import Helpers from 'utils/Helpers';
 
 class PluginInfo extends Component {
   render() {
@@ -36,7 +37,7 @@ class PluginInfo extends Component {
               <Avatar icon={<FontIcon iconClassName="fa fa-folder-open" />} />
             }
             title="In category"
-            subtitle={plugin.category}
+            subtitle={Helpers.getCategoryName(plugin.category)}
           />
         </Link>
       </div>
