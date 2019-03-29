@@ -1,14 +1,14 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import PluginListing from 'components/PluginListing';
 import Layout from 'layout';
+import PluginListing from 'components/PluginListing';
 import config from 'data/SiteConfig';
 
 export default class CategoryTemplate extends React.Component {
   render() {
     const { category } = this.props.pageContext;
-    const pluginEdges = this.props.data.allMarkdownRemark.edges;
+    const pluginEdges = this.props.data.allMarkdownRemark ? this.props.data.allMarkdownRemark.edges : [];
     return (
       <Layout
         location={this.props.location}
@@ -24,7 +24,7 @@ export default class CategoryTemplate extends React.Component {
               href={`${config.siteUrl}/categories/${category}`}
             />
           </Helmet>
-          <PluginListing pluginEdges={pluginEdges} />
+          <PluginListing category={category} pluginEdges={pluginEdges} />
         </div>
       </Layout>
     );
@@ -50,6 +50,7 @@ export const pageQuery = graphql`
             tags
             logo
             date
+            category
           }
         }
       }

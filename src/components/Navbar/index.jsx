@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'gatsby';
+import _ from 'lodash';
 import config from 'data/SiteConfig';
 
 class Navbar extends Component {
@@ -8,10 +10,9 @@ class Navbar extends Component {
     return categories.map(category => (
       <div
         key={category.id}
-        className={this.props.activeCategory === category.id ? 'active' : ''}
-        onClick={() => this.props.onMenuChange(category.id)}
+        className={this.props.category === category.id ? 'active' : ''}
       >
-        {category.name}
+        <Link to={`/categories/${_.kebabCase(category.id)}/`}>{category.name}</Link>
       </div>
     ));
   }
@@ -21,10 +22,9 @@ class Navbar extends Component {
       <div id="navMenu">
         <div className="navMenu">
           <div
-            className={this.props.activeCategory === 'all' ? 'active' : ''}
-            onClick={() => this.props.onMenuChange('all')}
+            className={!this.props.category ? 'active' : ''}
           >
-            Recent
+            <Link to="/">Recent</Link>
           </div>
           {this.renderNavMenu()}
         </div>

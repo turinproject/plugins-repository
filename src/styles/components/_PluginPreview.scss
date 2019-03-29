@@ -25,6 +25,13 @@
       padding: 0 20px;
       width: calc(100% - 215px);
 
+      h6 {
+        color: $color-lighter-black;
+        margin: 0;
+        line-height: 1;
+        font-style: italic;
+      }
+
       h3 {
         color: $primary-color;
         font-size: 2rem;

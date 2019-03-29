@@ -65,7 +65,8 @@ module.exports = {
         templates: path.join(__dirname, 'src/templates'),
         layout: path.join(__dirname, 'src/layout'),
         styles: path.join(__dirname, 'src/styles'),
-        data: path.join(__dirname, 'data')
+        data: path.join(__dirname, 'data'),
+        utils: path.join(__dirname, 'src/utils')
       }
     },
     {

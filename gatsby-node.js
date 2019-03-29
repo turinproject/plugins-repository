@@ -128,7 +128,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         const tagSet = new Set();
-        const categorySet = new Set();
+        // const categorySet = new Set();
         result.data.allMarkdownRemark.edges.forEach(edge => {
           if (edge.node.frontmatter.tags) {
             edge.node.frontmatter.tags.forEach(tag => {
@@ -136,9 +136,9 @@ exports.createPages = ({ graphql, actions }) => {
             });
           }
 
-          if (edge.node.frontmatter.category) {
-            categorySet.add(edge.node.frontmatter.category);
-          }
+          // if (edge.node.frontmatter.category) {
+          //   categorySet.add(edge.node.frontmatter.category);
+          // }
 
           createPage({
             path: edge.node.fields.slug,
@@ -160,13 +160,14 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
 
-        const categoryList = Array.from(categorySet);
+        const categoryList = siteConfig.categories[0].options;
+        // const categoryList = Array.from(categorySet);
         categoryList.forEach(category => {
           createPage({
-            path: `/categories/${_.kebabCase(category)}/`,
+            path: `/categories/${_.kebabCase(category.id)}/`,
             component: categoryPage,
             context: {
-              category
+              category: category.id
             }
           });
         });

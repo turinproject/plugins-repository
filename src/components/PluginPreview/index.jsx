@@ -3,8 +3,9 @@ import { Link } from 'gatsby';
 import moment from 'moment';
 // import StarRatings from 'react-star-ratings';
 
-import config from 'data/SiteConfig';
 import PluginTags from 'components/PluginTags';
+import config from 'data/SiteConfig';
+import Helpers from 'utils/Helpers';
 
 class PluginPreview extends Component {
   render() {
@@ -21,6 +22,7 @@ class PluginPreview extends Component {
           />
           <div className="card-body">
             <Link to={pluginInfo.path}>
+              <h6>{Helpers.getCategoryName(pluginInfo.category)}</h6>
               <h3>{pluginInfo.title}</h3>
             </Link>
             <p>{pluginInfo.description}</p>
