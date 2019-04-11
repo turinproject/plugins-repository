@@ -20,8 +20,10 @@ class PluginPreview extends Component {
             onError={e => {e.target.src = config.siteLogo}}
           />
           <div className="card-body">
-            <Link to={pluginInfo.path}>
+            <Link to={`categories/${pluginInfo.category}`}>
               <h6>{Helpers.getCategoryName(pluginInfo.category)}</h6>
+            </Link>
+            <Link to={pluginInfo.path}>
               <h3>{pluginInfo.title}</h3>
             </Link>
             <p>{pluginInfo.description}</p>

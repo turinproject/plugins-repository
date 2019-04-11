@@ -42,7 +42,7 @@ export default class PluginTemplate extends React.Component {
     const plugin = pluginNode.frontmatter;
 
     // Always set the logo here to the category image
-    const logo = `/logos/${plugin.category}.png`;
+    const logo = plugin.logo ? plugin.logo : `/logos/${plugin.category}.png`;
 
     if (!plugin.id) {
       plugin.id = slug;
@@ -62,10 +62,10 @@ export default class PluginTemplate extends React.Component {
           <Grid id="plugin-detail-page" className="index-container">
             <Cell size={12} className="plugin-header">
               <img
-                src={plugin.logo}
+                src={logo}
                 alt="featured"
                 className="avatar"
-                onError={e => {e.target.src = logo}}
+                onError={e => {e.target.src = config.siteLogo}}
               />
               <div className="plugin-info">
                 <p><span>{Helpers.getCategoryName(plugin.category)}</span></p>
