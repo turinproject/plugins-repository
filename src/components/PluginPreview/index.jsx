@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
-import moment from 'moment';
-// import StarRatings from 'react-star-ratings';
+import { FontIcon } from 'react-md';
 
 import PluginTags from 'components/PluginTags';
 import config from 'data/SiteConfig';
@@ -42,19 +41,19 @@ class PluginPreview extends Component {
               alt="avatar"
               className="avatar"
             />
-            <span>By <span>Automatic</span></span>
+            <span>Automatic</span>
           </div>
-          <div className="post-desc">
-            <span>
-              <b>Update Date</b>
-              {moment(pluginInfo.date).format(config.dateFormat)}
-            </span>
-            {/* <StarRatings
-              rating={4.5}
-              starDimension="16px"
-              starSpacing="0px"
-              starRatedColor="#feb802"
-            /> */}
+          <div className="post-rating">
+            <div className="download">
+              <FontIcon iconClassName="fa fa-cloud-download" />
+              689,514
+            </div>
+            <div className="stars">
+              <div className="star-icon">
+                <FontIcon iconClassName="fa fa-star" />
+              </div>
+              <div className="stared-num">522</div>
+            </div>
           </div>
         </div>
       </div>

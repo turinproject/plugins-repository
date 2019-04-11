@@ -25,14 +25,14 @@ export default class PluginTemplate extends React.Component {
 
   renderContributors(contributors) {
     return contributors.map((contributor, index) => (
-      <div key={index}>
+      <a href={`https://github.com/${contributor}`} key={index}>
         <img
           src={config.defaultAvatar}
           alt="avatar"
           className="avatar"
         />
         <span>{contributor}</span>
-      </div>
+      </a>
     ))
   }
 
@@ -62,14 +62,14 @@ export default class PluginTemplate extends React.Component {
           <Grid id="plugin-detail-page" className="index-container">
             <Cell size={12} className="plugin-header">
               <img
-                src={logo}
+                src={plugin.logo}
                 alt="featured"
                 className="avatar"
-                onError={e => {e.target.src = config.siteLogo}}
+                onError={e => {e.target.src = logo}}
               />
               <div className="plugin-info">
-                <h2>{plugin.title}</h2>
                 <p><span>{Helpers.getCategoryName(plugin.category)}</span></p>
+                <h2>{plugin.title}</h2>
               </div>
             </Cell>
 
