@@ -10,7 +10,7 @@ class PluginListing extends React.Component {
         path: pluginEdge.node.fields.slug,
         tags: pluginEdge.node.frontmatter.tags,
         category: pluginEdge.node.frontmatter.category,
-        logo: pluginEdge.node.frontmatter.logo ? pluginEdge.node.frontmatter.logo : `/logos/${pluginEdge.node.frontmatter.category}.png`,
+        logo: pluginEdge.node.frontmatter.logo ? pluginEdge.node.frontmatter.logo : `/assets/img/logos/${pluginEdge.node.frontmatter.category}.png`,
         title: pluginEdge.node.frontmatter.title,
         date: pluginEdge.node.fields.date,
         description: pluginEdge.node.rawMarkdownBody

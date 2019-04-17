@@ -16,7 +16,7 @@ class SEO extends Component {
       description = pluginMeta.description
         ? pluginMeta.description
         : pluginNode.description;
-      image = pluginMeta.logo ? pluginMeta.logo : `/logos/${pluginMeta.category}.png`;
+      image = pluginMeta.logo ? pluginMeta.logo : `/assets/img/logos/${pluginMeta.category}.png`;
       pluginURL = urljoin(config.siteUrl, config.pathPrefix, pluginPath);
     } else {
       title = config.siteTitle;

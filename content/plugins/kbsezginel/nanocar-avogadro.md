@@ -5,7 +5,7 @@ slug: kbsezginel-nanocar-avogadro
 category: commands
 version: 1.0
 url: 'https://github.com/kbsezginel/nanocar-avogadro'
-logo: /logos/kbsezginel-nanocar-avogadro.png
+logo: /assets/img/logos/kbsezginel-nanocar-avogadro.png
 contributors:
   - kbsezginel
 tags:

@@ -1,10 +1,10 @@
 require('dotenv').config();
 
+const fs = require(`fs`);
 const urljoin = require('url-join');
-/*
 const fetch = require('node-fetch');
 const { createHttpLink } = require('apollo-link-http');
-*/
+const { buildClientSchema } = require(`graphql`);
 const path = require('path');
 
 const config = require('./data/SiteConfig');
@@ -36,6 +36,13 @@ module.exports = {
         name: "plugins",
         path: `${__dirname}/content/plugins/`
       }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'queries',
+        path: `${__dirname}/src/queries/`,
+      },
     },
     {
       resolve: "gatsby-transformer-remark",
@@ -104,41 +111,37 @@ module.exports = {
         short_name: config.siteTitleShort,
         description: config.siteDescription,
         start_url: config.pathPrefix,
-        background_color: "#e0e0e0",
-        theme_color: "#c62828",
         display: "minimal-ui",
         icons: [
           {
-            src: "/logos/logo-192.png",
-            sizes: "192x192",
-            type: "image/png"
-          },
-          {
-            src: "/logos/logo-512.png",
-            sizes: "512x512",
+            src: "/assets/img/logos/default.png",
+            sizes: "368x368",
             type: "image/png"
           }
         ]
       }
     },
-    /*
     {
+      // TODO: Fetch latest schema from github API.
+      // Currently the file was manually grabbed with curl.
       resolve: "gatsby-source-graphql",
       options: {
         typeName: "GitHub",
         fieldName: "github",
-        createLink: (pluginOptions) => {
+        createLink: () =>
           createHttpLink({
             uri: `${process.env.GATSBY_GITHUB_GRAPHQL_URL}`,
             headers: {
-              'Authorization': `bearer ${process.env.GITHUB_TOKEN}`,
+              Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
             },
             fetch,
-          })
-        }
+          }),
+        createSchema: async () => {
+          const json = JSON.parse(fs.readFileSync(`${__dirname}/github.json`))
+          return buildClientSchema(json.data)
+        },
       },
     },
-    */
     "gatsby-plugin-offline"
   ]
 };

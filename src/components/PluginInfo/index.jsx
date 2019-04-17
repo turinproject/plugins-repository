@@ -12,7 +12,7 @@ class PluginInfo extends Component {
   render() {
     const { pluginNode } = this.props;
     const plugin = pluginNode.frontmatter;
-    const logo = plugin.logo ? plugin.logo : `/logos/${plugin.category}.png`;
+    const logo = plugin.logo ? plugin.logo : `/assets/img/logos/${plugin.category}.png`;
     return (
       <div className="plugin-info">
         <CardTitle

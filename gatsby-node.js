@@ -161,6 +161,7 @@ exports.createPages = ({ graphql, actions }) => {
         });
 
         const categoryList = siteConfig.categories[0].options;
+        // TODO: On Build. Count num of posts per category and filter out categories with no content.
         // const categoryList = Array.from(categorySet);
         categoryList.forEach(category => {
           createPage({
