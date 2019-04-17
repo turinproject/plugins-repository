@@ -42,7 +42,7 @@ export default class PluginTemplate extends React.Component {
     const plugin = pluginNode.frontmatter;
 
     // Always set the logo here to the category image
-    const logo = `/logos/${plugin.category}.png`;
+    const logo = `/assets/img/logos/${plugin.category}.png`;
 
     if (!plugin.id) {
       plugin.id = slug;
