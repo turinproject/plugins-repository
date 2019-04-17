@@ -122,6 +122,8 @@ module.exports = {
       }
     },
     {
+      // TODO: Fetch latest schema from github API.
+      // Currently the file was manually grabbed with curl.
       resolve: "gatsby-source-graphql",
       options: {
         typeName: "GitHub",

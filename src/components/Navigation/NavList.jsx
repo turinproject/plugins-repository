@@ -2,10 +2,10 @@ import React from "react";
 import FontIcon from "react-md/lib/FontIcons";
 import { Link } from "gatsby";
 
-function GetNavList(config) {
+function GetNavList() {
   const NavList = [
     {
-      primaryText: "Home",
+      primaryText: "Avogadro 2",
       leftIcon: <FontIcon>home</FontIcon>,
       component: Link,
       to: "/"
@@ -14,19 +14,6 @@ function GetNavList(config) {
       divider: true
     }
   ];
-
-  if (config.userLinks) {
-    config.userLinks.forEach(link => {
-      NavList.push({
-        primaryText: link.label,
-        leftIcon: <FontIcon forceSize iconClassName={link.iconClassName} />,
-        component: "a",
-        href: link.url
-      });
-    });
-  }
-
-  NavList.push({ divider: true });
 
   NavList.push({
     primaryText: "About",
@@ -45,20 +32,11 @@ function GetNavList(config) {
   NavList.push({ divider: true });
 
   NavList.push({
-    primaryText: "Log In",
-    leftIcon: <FontIcon>exit_to_app</FontIcon>,
-    component: Link,
-    to: "/admin/#/"
-  });
-
-  NavList.push({
     primaryText: "Sign Up",
     leftIcon: <FontIcon>person_add</FontIcon>,
     component: Link,
     to: "/auth/signup/"
   });
-
-  NavList.push({ divider: true });
 
   NavList.push({
     primaryText: "Log out",

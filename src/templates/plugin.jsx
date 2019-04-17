@@ -25,14 +25,14 @@ export default class PluginTemplate extends React.Component {
 
   renderContributors(contributors) {
     return contributors.map((contributor, index) => (
-      <div key={index}>
+      <a href={`https://github.com/${contributor}`} key={index}>
         <img
           src={config.defaultAvatar}
           alt="avatar"
           className="avatar"
         />
         <span>{contributor}</span>
-      </div>
+      </a>
     ))
   }
 
@@ -68,8 +68,8 @@ export default class PluginTemplate extends React.Component {
                 onError={e => {e.target.src = config.siteLogo}}
               />
               <div className="plugin-info">
-                <h2>{plugin.title}</h2>
                 <p><span>{Helpers.getCategoryName(plugin.category)}</span></p>
+                <h2>{plugin.title}</h2>
               </div>
             </Cell>
 

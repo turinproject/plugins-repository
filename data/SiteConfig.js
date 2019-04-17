@@ -1,5 +1,5 @@
 module.exports = {
-  siteTitle: "Turin Plugins Repository", // Site title.
+  siteTitle: "Avogadro 2 Plugins Repository", // Site title.
   siteTitleShort: "Plugins", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   siteTitleAlt: "Plugins Repository", // Alternative site title for SEO.
   siteLogo: "/assets/img/logos/other.png", // Logo used for SEO and manifest.
