@@ -1,3 +1,6 @@
+$gradient-bg1: #fbfbfb;
+$gradient-bg2: #f5f5f5;
+$gradient-bg3: #ededee;
 
 #cardItem {
   display: flex;
@@ -26,14 +29,14 @@
       width: calc(100% - 215px);
 
       h6 {
-        color: $color-lighter-black;
+        color: $primary-color;
         margin: 0;
         line-height: 1;
         font-style: italic;
       }
 
       h3 {
-        color: $primary-color;
+        color: $color-lighter-black;
         font-size: 2rem;
         font-weight: bold;
         margin-bottom: 8px;
@@ -92,29 +95,64 @@
       align-items: center;
 
       span {
+        color: $primary-color;
         font-size: 1.3rem;
         font-style: italic;
         margin-left: 1rem;
-
-        span {
-          color: $primary-color;
-          margin-left: 0;
-        }
       }
     }
 
-    .post-desc {
+    .post-rating {
       display: flex;
-      flex-direction: column;
-      font-size: 1.2rem;
+      flex-direction: row;
+      font-size: 1.3rem;
 
-      b {
-        color: $tertiary-color;
-        margin-right: 5px;
+      .download {
+        display: flex;
+        align-items: center;
+        color: $color-dark-grey;
       }
 
-      div {
-        text-align: center;
+      .stars {
+        display: flex;
+        flex-direction: row;
+        color: $color-light-black;
+        font-weight: bold;
+        margin-left: 10px;
+        cursor: pointer;
+
+        > div {
+          border: 1px solid darken($color-medium-grey, 5%);
+        }
+
+        .star-icon {
+          display: flex;
+          align-items: center;
+          border-radius: 3px 0 0 3px;
+          background: linear-gradient(to bottom, $gradient-bg1, $gradient-bg2, $gradient-bg3);
+
+          i {
+            padding: 3px 5px;
+            margin: 0;
+            font-size: $font-size-default;
+            color: $color-light-black;
+          }
+        }
+
+        .stared-num {
+          border-radius: 0 3px 3px 0;
+          border-left: 0;
+          font-size: 1.3rem;
+          padding: 3px 7px;
+          padding-top: 4px;
+          background: white;
+        }
+      }
+
+      i {
+        font-size: $font-size-large;
+        color: $color-dark-grey;
+        margin-right: 3px;
       }
     }
   }

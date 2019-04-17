@@ -13,6 +13,7 @@ export default class PageLayout extends React.Component {
         <div>
           <Helmet>
             <meta name="description" content={config.siteDescription} />
+            <link rel="shortcut icon" href="/assets/img/avogadro-logo.png" />
           </Helmet>
           {children}
         </div>

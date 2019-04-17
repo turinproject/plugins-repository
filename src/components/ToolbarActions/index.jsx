@@ -3,11 +3,18 @@ import UserLinks from 'components/UserLinks';
 
 class Toolbar extends Component {
   render() {
-    const { config } = this.props;
+    const config = {
+      userLinks: [{
+        label: "Login",
+        url: "https://github.com/turinproject/plugins-repository",
+        iconClassName: "fa fa-github"
+      }]
+    };
+
     return (
       <div className="toolbar-actions">
         <div className="userlinks-container">
-          <UserLinks config={config} />
+          <UserLinks config={config} labeled />
         </div>
       </div>
     );
