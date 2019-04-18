@@ -9,6 +9,7 @@ import config from 'data/SiteConfig';
 class Index extends React.Component {
   render() {
     const pluginEdges = this.props.data.allMarkdownRemark.edges;
+    console.log('plugin edges in index', pluginEdges);
     return (
       <Layout location={this.props.location} title="Home">
         <div className="index-container">
@@ -44,6 +45,7 @@ export const pageQuery = graphql`
             category
             logo
             date
+            description
           }
           rawMarkdownBody
         }

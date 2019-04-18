@@ -48,6 +48,7 @@ export const pageQuery = graphql`
             logo
             date
             category
+            description
           }
         }
       }

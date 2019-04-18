@@ -11,6 +11,8 @@ contributors:
 tags:
   - chemistry
   - avogadro
+description:
+  Test description
 ---
 Build a Nanocar molecule by picking molecular wheels and chassis in [Avogadro 2](https://www.openchemistry.org/projects/avogadro2/)!
 
