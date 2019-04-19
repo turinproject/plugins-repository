@@ -94,7 +94,7 @@ export default class PluginTemplate extends React.Component {
 
                 <div className="detail-info">
                   <span>Version:</span>
-                  <label>{plugin.version}</label>
+                  <label>{plugin.versions}</label>
                 </div>
 
                 <div className="detail-info">
@@ -131,7 +131,7 @@ export const pageQuery = graphql`
         date
         category
         tags
-        version
+        versions
         contributors
       }
       fields {

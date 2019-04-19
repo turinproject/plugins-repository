@@ -3,7 +3,7 @@ title: Avogadro 2 Python Input Generators
 date: '2018-08-12'
 slug: openchemistry-avogenerators
 category: generators
-version: 1.0
+versions: '1.0.0'
 url: 'https://github.com/OpenChemistry/avogenerators'
 contributors:
   - allisonvacanti

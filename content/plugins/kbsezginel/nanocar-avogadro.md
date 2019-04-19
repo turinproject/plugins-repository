@@ -3,7 +3,7 @@ title: Avogadro Nanocar Builder Plug-in
 date: '2019-03-07'
 slug: kbsezginel-nanocar-avogadro
 category: commands
-version: 1.0
+versions: '1.0.0'
 url: 'https://github.com/kbsezginel/nanocar-avogadro'
 logo: /assets/img/logos/kbsezginel-nanocar-avogadro.png
 contributors:

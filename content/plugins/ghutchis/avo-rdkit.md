@@ -3,7 +3,7 @@ title: Avogadro RDKit Scripts
 date: '2018-08-03'
 slug: ghutchis-avo-rdkit
 category: commands
-version: 1.0
+versions: '1.0.0'
 url: 'https://github.com/ghutchis/avo-rdkit'
 contributors:
   - ghutchis

@@ -3,7 +3,7 @@ title: Crystals
 date: '2017-02-22'
 slug: openchemistry-crystals
 category: data
-version: 1.0
+versions: '1.0.0'
 url: 'https://github.com/openchemistry/crystals'
 contributors:
   - ghutchis

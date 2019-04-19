@@ -3,7 +3,7 @@ title: Molecules
 date: '2016-12-17'
 slug: openchemistry-molecules
 category: data
-version: 1.0
+versions: '1.0.0'
 url: 'https://github.com/openchemistry/molecules'
 contributors:
   - ghutchis
