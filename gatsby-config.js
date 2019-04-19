@@ -1,10 +1,11 @@
 require('dotenv').config();
 
-const fs = require(`fs`);
+// const fs = require(`fs`);
 const urljoin = require('url-join');
 const fetch = require('node-fetch');
 const { createHttpLink } = require('apollo-link-http');
-const { buildClientSchema } = require(`graphql`);
+
+// const { buildClientSchema } = require(`graphql`);
 const path = require('path');
 
 const config = require('./data/SiteConfig');
@@ -128,18 +129,15 @@ module.exports = {
       options: {
         typeName: "GitHub",
         fieldName: "github",
-        createLink: () =>
+        createLink: () => (
           createHttpLink({
             uri: `${process.env.GATSBY_GITHUB_GRAPHQL_URL}`,
             headers: {
-              Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+              Authorization: `bearer ${process.env.GATSBY_GITHUB_TOKEN}`,
             },
             fetch,
-          }),
-        createSchema: async () => {
-          const json = JSON.parse(fs.readFileSync(`${__dirname}/github.json`))
-          return buildClientSchema(json.data)
-        },
+          })
+        ),
       },
     },
     "gatsby-plugin-offline"

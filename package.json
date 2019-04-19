@@ -4,6 +4,9 @@
   "version": "0.0.1",
   "author": "Will Gladstone <will@jollypebble.com>",
   "repository": "https://gitlab.com/turinproject/plugins-repository",
+  "resolutions": {
+    "graphql": "^0.13.2"
+  },
   "dependencies": {
     "apollo-link-http": "^1.5.14",
     "dotenv": "^6.2.0",

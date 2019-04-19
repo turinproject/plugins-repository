@@ -13,7 +13,7 @@ class PluginListing extends React.Component {
         logo: pluginEdge.node.frontmatter.logo ? pluginEdge.node.frontmatter.logo : `/assets/img/logos/${pluginEdge.node.frontmatter.category}.png`,
         title: pluginEdge.node.frontmatter.title,
         date: pluginEdge.node.fields.date,
-        description: pluginEdge.node.frontmatter.description
+        url: pluginEdge.node.frontmatter.url
       });
     });
 
@@ -28,7 +28,7 @@ class PluginListing extends React.Component {
         <Navbar category={this.props.category} />
         <div className="plugin-container md-grid mobile-fix">
           {pluginList.map(plugin => (
-            <PluginPreview key={plugin.title} pluginInfo={plugin} />
+            <PluginPreview key={plugin.title} pluginInfo={plugin} repositories={this.props.repositories} />
           ))}
         </div>
       </div>

@@ -4,12 +4,12 @@ import { graphql } from 'gatsby';
 import Layout from 'layout';
 import PluginListing from 'components/PluginListing';
 import SEO from 'components/SEO';
+
 import config from 'data/SiteConfig';
 
 class Index extends React.Component {
   render() {
     const pluginEdges = this.props.data.allMarkdownRemark.edges;
-    console.log('plugin edges in index', pluginEdges);
     return (
       <Layout location={this.props.location} title="Home">
         <div className="index-container">
@@ -18,7 +18,7 @@ class Index extends React.Component {
             <link rel="canonical" href={`${config.siteUrl}`} />
           </Helmet>
           <SEO pluginEdges={pluginEdges} />
-          <PluginListing pluginEdges={pluginEdges} />
+          <PluginListing pluginEdges={pluginEdges} repositories={this.props.pageContext && this.props.pageContext.repositories} />
         </div>
       </Layout>
     );
@@ -45,7 +45,7 @@ export const pageQuery = graphql`
             category
             logo
             date
-            description
+            url
           }
           rawMarkdownBody
         }

@@ -9,7 +9,10 @@
     "react/jsx-one-expression-per-line": "off",
     "react/no-unescaped-entities": "off",
     "react/no-array-index-key": "off",
+    "react/no-access-state-in-setstate": "off",
     "import/no-unresolved": "off",
+    "import/no-mutable-exports": "off",
+    "prefer-const": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/anchor-is-valid": [ "error", {

@@ -38,9 +38,10 @@ export default class PluginTemplate extends React.Component {
   }
 
   render() {
-    const { slug } = this.props.pageContext;
+    const { slug, repositories } = this.props.pageContext;
     const pluginNode = this.props.data.markdownRemark;
     const plugin = pluginNode.frontmatter;
+    const repository = repositories.find(item => item.url === plugin.url);
 
     // Always set the logo here to the category image
     const logo = `/assets/img/logos/${plugin.category}.png`;
@@ -93,12 +94,12 @@ export default class PluginTemplate extends React.Component {
 
                 <div className="detail-info">
                   <span>Version:</span>
-                  <label>1.0.0</label>
+                  <label>{plugin.version}</label>
                 </div>
 
                 <div className="detail-info">
                   <span>Last updated:</span>
-                  <label>{moment(pluginNode.fields.date).format(config.dateFormat)}</label>
+                  <label>{moment(repository && repository.updatedAt).format(config.dateFormat)}</label>
                 </div>
 
                 <div className="detail-info">
@@ -130,6 +131,7 @@ export const pageQuery = graphql`
         date
         category
         tags
+        version
         contributors
       }
       fields {

@@ -3,12 +3,13 @@ import { Link } from 'gatsby';
 import { FontIcon } from 'react-md';
 
 import PluginTags from 'components/PluginTags';
-import config from 'data/SiteConfig';
 import Helpers from 'utils/Helpers';
+import config from 'data/SiteConfig';
 
 class PluginPreview extends Component {
   render() {
-    const { pluginInfo } = this.props;
+    const { pluginInfo, repositories } = this.props;
+    const repository = repositories && repositories.find(item => item.url.toLowerCase() === pluginInfo.url.toLowerCase());
     const logo = pluginInfo.logo ? pluginInfo.logo : `/assets/img/logos/${pluginInfo.category}.png`;
     return (
       <div key={pluginInfo.path} id="cardItem" className="md-grid md-cell md-cell--6">
@@ -17,7 +18,7 @@ class PluginPreview extends Component {
             src={logo}
             alt="featured"
             className="featured-image"
-            onError={e => {e.target.src = config.siteLogo}}
+            onError={e => { e.target.src = config.siteLogo }}
           />
           <div className="card-body">
             <Link to={`categories/${pluginInfo.category}`}>
@@ -26,7 +27,7 @@ class PluginPreview extends Component {
             <Link to={pluginInfo.path}>
               <h3>{pluginInfo.title}</h3>
             </Link>
-            <p>{pluginInfo.description}</p>
+            <p>{repository && repository.description}</p>
           </div>
           <div className="card-action">
             <Link to={pluginInfo.path}>
@@ -39,11 +40,12 @@ class PluginPreview extends Component {
         <div className="card-footer">
           <div className="plugin-poster">
             <img
-              src={config.defaultAvatar}
+              src={repository && repository.owner.avatarUrl}
               alt="avatar"
               className="avatar"
+              onError={e => { e.target.src = config.defaultAvatar }}
             />
-            <span>Automatic</span>
+            <span>{repository && repository.owner.login}</span>
           </div>
           <div className="post-rating">
             <div className="download">
@@ -54,7 +56,7 @@ class PluginPreview extends Component {
               <div className="star-icon">
                 <FontIcon iconClassName="fa fa-star" />
               </div>
-              <div className="stared-num">522</div>
+              <div className="stared-num">{repository && repository.stargazers.totalCount}</div>
             </div>
           </div>
         </div>

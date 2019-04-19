@@ -1,9 +1,14 @@
 const path = require("path");
 const _ = require("lodash");
 const moment = require("moment");
+
+const queries = require("./src/queries");
 const siteConfig = require("./data/SiteConfig");
+const repoList = require("./data/plugins/PluginsList");
+// const { repositories } = require("./data/global");
 
 const pluginNodes = [];
+let repositories = [];
 
 function addSiblingNodes(createNodeField) {
   pluginNodes.sort(
@@ -45,6 +50,15 @@ function addSiblingNodes(createNodeField) {
       value: prevNode.fields.slug
     });
   }
+}
+
+function getRepositoryInfo(graphql) {
+  return Promise.all(repoList.map(repo => graphql(queries.getRepostoryInfo, repo).then(result => {
+    if (result.errors) {
+      console.error(result.errors[0].message);
+    }
+    return result.data.github.repository;
+  })))
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -94,39 +108,36 @@ exports.setFieldsOnGraphQLNodeType = ({ type, actions }) => {
   }
 };
 
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage, deletePage } = actions;
+  const oldPage = Object.assign({}, page)
+
+  if (page.path === '/') {
+    deletePage(oldPage)
+    createPage({
+      ...page,
+      context: {
+        repositories
+      }
+    })
+  }
+}
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  return new Promise((resolve, reject) => {
+  return getRepositoryInfo(graphql).then(res => new Promise((resolve, reject) => {
     const pluginPage = path.resolve("src/templates/plugin.jsx");
     const tagPage = path.resolve("src/templates/tag.jsx");
     const categoryPage = path.resolve("src/templates/category.jsx");
+    repositories = res;
     resolve(
-      graphql(
-        `
-          {
-            allMarkdownRemark {
-              edges {
-                node {
-                  frontmatter {
-                    tags
-                    category
-                  }
-                  fields {
-                    slug
-                  }
-                }
-              }
-            }
-          }
-        `
-      ).then(result => {
+      graphql(queries.getPluginTagsFromMarkdown).then(result => {
         if (result.errors) {
           /* eslint no-console: "off" */
-          console.log(result.errors);
+          console.error(result.errors);
           reject(result.errors);
         }
-
         const tagSet = new Set();
         // const categorySet = new Set();
         result.data.allMarkdownRemark.edges.forEach(edge => {
@@ -144,7 +155,8 @@ exports.createPages = ({ graphql, actions }) => {
             path: edge.node.fields.slug,
             component: pluginPage,
             context: {
-              slug: edge.node.fields.slug
+              slug: edge.node.fields.slug,
+              repositories: res
             }
           });
         });
@@ -155,7 +167,8 @@ exports.createPages = ({ graphql, actions }) => {
             path: `/tags/${_.kebabCase(tag)}/`,
             component: tagPage,
             context: {
-              tag
+              tag,
+              repositories: res
             }
           });
         });
@@ -168,11 +181,12 @@ exports.createPages = ({ graphql, actions }) => {
             path: `/categories/${_.kebabCase(category.id)}/`,
             component: categoryPage,
             context: {
-              category: category.id
+              category: category.id,
+              repositories: res
             }
           });
         });
       })
     );
-  });
+  }));
 };
