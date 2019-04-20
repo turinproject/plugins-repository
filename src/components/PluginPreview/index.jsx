@@ -38,7 +38,7 @@ class PluginPreview extends Component {
         </div>
         <PluginTags tags={pluginInfo.tags} />
         <div className="card-footer">
-          <div className="plugin-poster">
+          <a href={repository.owner.url} className="plugin-poster">
             <img
               src={repository && repository.owner.avatarUrl}
               alt="avatar"
@@ -46,7 +46,7 @@ class PluginPreview extends Component {
               onError={e => { e.target.src = config.defaultAvatar }}
             />
             <span>{repository && repository.owner.login}</span>
-          </div>
+          </a>
           <div className="post-rating">
             <div className="download">
               <FontIcon iconClassName="fa fa-cloud-download" />

@@ -28,6 +28,7 @@ exports.getRepostoryInfo = `
           id
           login
           avatarUrl
+          url
         }
         stargazers {
           totalCount
@@ -48,34 +49,6 @@ exports.getRepostoryInfo = `
                 }
               }
             }
-          }
-        }
-      }
-    }
-  }
-`
-
-exports.getOrganziationRepoInfo = `
-  query Repositories($organization: String!, $repoName: String!) {
-    github {
-      organization(login: $organization) {
-        repository(name: $repoName) {
-          description
-          owner {
-            id
-            login
-            avatarUrl
-          }
-          collaborators(first: 10) {
-            edges {
-              node {
-                id
-                login
-              }
-            }
-          }
-          stargazers {
-            totalCount
           }
         }
       }
