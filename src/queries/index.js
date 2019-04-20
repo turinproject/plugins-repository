@@ -29,16 +29,26 @@ exports.getRepostoryInfo = `
           login
           avatarUrl
         }
-        collaborators(first: 10) {
-          edges {
-            node {
-              id
-              login
-            }
-          }
-        }
         stargazers {
           totalCount
+        }
+        object(expression: "master") {
+          ... on GitHub_Commit {
+            history(first: 100) {
+              edges {
+                node {
+                  committer {
+                    user {
+                      login
+                      url
+                    }
+                    name
+                    avatarUrl
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

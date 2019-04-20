@@ -24,17 +24,18 @@ export default class PluginTemplate extends React.Component {
   }
 
   renderContributors(contributors) {
+    if (!contributors || !contributors.length) return;
     return contributors.map((contributor, index) => (
-      <a href={`https://github.com/${contributor}`} key={index}>
+      <a href={contributor.url} key={index}>
         <img
-          src={`https://github.com/${contributor}.png`}
           alt="avatar"
           className="avatar"
+          src={contributor.avatarUrl}
           onError={e => {e.target.src = config.defaultAvatar}}
         />
-        <span>{contributor}</span>
+        <span>{contributor.name}</span>
       </a>
-    ))
+    ));
   }
 
   render() {
@@ -109,7 +110,7 @@ export default class PluginTemplate extends React.Component {
 
                 <div className="contributors">
                   <h3>Contributors</h3>
-                  {this.renderContributors(plugin.contributors)}
+                  {this.renderContributors(repository.contributors)}
                 </div>
               </Cell>
             </Grid>

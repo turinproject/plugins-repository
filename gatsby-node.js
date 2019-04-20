@@ -5,7 +5,6 @@ const moment = require("moment");
 const queries = require("./src/queries");
 const siteConfig = require("./data/SiteConfig");
 const repoList = require("./data/plugins/PluginsList");
-// const { repositories } = require("./data/global");
 
 const pluginNodes = [];
 let repositories = [];
@@ -52,12 +51,32 @@ function addSiblingNodes(createNodeField) {
   }
 }
 
+function getRepoContributors(repository) {
+  let contributors = [];
+  const { edges } = repository.object.history;
+  edges.forEach(edge => {
+    if (!_.find(contributors, edge.node.committer)) {
+      const { user } = edge.node.committer;
+      contributors.push({
+        ...edge.node.committer,
+        url: user ? user.url : ''
+      });
+    }
+  });
+  return contributors;
+}
+
 function getRepositoryInfo(graphql) {
   return Promise.all(repoList.map(repo => graphql(queries.getRepostoryInfo, repo).then(result => {
     if (result.errors) {
       console.error(result.errors[0].message);
     }
-    return result.data.github.repository;
+    const { repository } = result.data.github;
+    const contributors = getRepoContributors(repository);
+    return {
+      ...repository,
+      contributors 
+    };
   })))
 }
 

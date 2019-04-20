@@ -10,6 +10,7 @@ import config from 'data/SiteConfig';
 class Index extends React.Component {
   render() {
     const pluginEdges = this.props.data.allMarkdownRemark.edges;
+    const { repositories } = this.props.pageContext;
     return (
       <Layout location={this.props.location} title="Home">
         <div className="index-container">
@@ -18,7 +19,7 @@ class Index extends React.Component {
             <link rel="canonical" href={`${config.siteUrl}`} />
           </Helmet>
           <SEO pluginEdges={pluginEdges} />
-          <PluginListing pluginEdges={pluginEdges} repositories={this.props.pageContext && this.props.pageContext.repositories} />
+          <PluginListing pluginEdges={pluginEdges} repositories={repositories && repositories} />
         </div>
       </Layout>
     );
