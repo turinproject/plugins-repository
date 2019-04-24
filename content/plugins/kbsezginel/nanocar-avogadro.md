@@ -6,13 +6,10 @@ category: commands
 versions: '1.0.0'
 url: 'https://github.com/kbsezginel/nanocar-avogadro'
 logo: /assets/img/logos/kbsezginel-nanocar-avogadro.png
-contributors:
-  - kbsezginel
 tags:
   - chemistry
   - avogadro
-description:
-  Test description
+description: "Nanocar builder Avogadro 2 plug-in"
 ---
 Build a Nanocar molecule by picking molecular wheels and chassis in [Avogadro 2](https://www.openchemistry.org/projects/avogadro2/)!
 

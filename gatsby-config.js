@@ -140,6 +140,20 @@ module.exports = {
         ),
       },
     },
-    "gatsby-plugin-offline"
+    "gatsby-plugin-offline",
+    {
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      options: {
+        fields: [`title`, `tags`, `category`, `description`],
+        resolvers: {
+          MarkdownRemark: {
+            title: node => node.frontmatter.title,
+            tags: node => node.frontmatter.tags,
+            category: node => node.frontmatter.category,
+            description: node => node.frontmatter.description
+          },
+        },
+      },
+    },
   ]
 };

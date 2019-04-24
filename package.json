@@ -8,6 +8,7 @@
     "graphql": "^0.13.2"
   },
   "dependencies": {
+    "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.2.1",
     "apollo-link-http": "^1.5.14",
     "dotenv": "^6.2.0",
     "font-awesome": "^4.7.0",

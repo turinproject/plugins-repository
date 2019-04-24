@@ -133,7 +133,6 @@ export const pageQuery = graphql`
         category
         tags
         versions
-        contributors
       }
       fields {
         slug

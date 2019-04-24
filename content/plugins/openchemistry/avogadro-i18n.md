@@ -5,10 +5,9 @@ slug: openchemistry-avogadro-i18n
 category: translations
 versions: '1.0.0'
 url: 'https://github.com/OpenChemistry/avogadro-i18n'
-contributors:
-  - ghutchis
 tags:
   - avogadro
   - openchemistry
+description: "Translations for Avogadro app and libraries"
 ---
 Translations for Avogadro app and libraries
