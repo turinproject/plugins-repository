@@ -50,6 +50,11 @@ exports.getRepostoryInfo = `
               }
             }
           }
+        },
+        second_object: object(expression: "master:README.md") {
+          ... on GitHub_Blob {
+            text
+          }
         }
       }
     }

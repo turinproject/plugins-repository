@@ -18,7 +18,7 @@ export default class PluginTemplate extends React.Component {
   }
 
   renderTags(tags) {
-    return tags.map((tag, index) => (
+    return tags && tags.map((tag, index) => (
       <Link key={index} to={`tags/${tag}`}><div>{tag}</div></Link>
     ))
   }

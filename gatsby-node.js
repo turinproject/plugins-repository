@@ -1,4 +1,5 @@
 const path = require("path");
+const fs = require("file-system");
 const _ = require("lodash");
 const moment = require("moment");
 
@@ -66,13 +67,43 @@ function getRepoContributors(repository) {
   return contributors;
 }
 
+function overridePlugins(repo) {
+  const ownerName = repo.owner.login;
+  const dirName = `./content/plugins/${ownerName.toLowerCase()}`;
+  let files = [];
+  if (!fs.existsSync(dirName)) {
+    fs.mkdirSync(dirName);
+  } else {
+    files = fs.readdirSync(dirName);
+  }
+  if (!files.length || !files.includes(`${repo.name}.md`)) {
+    let data = '---\r\n';
+    data += `title: ${repo.title ? repo.title : repo.name}\r\n`;
+    data += `date: \r\n`;
+    data += `slug: ${repo.name}\r\n`;
+    data += `category: ${repo.category ? repo.category : 'other'}\r\n`;
+    data += `url: ${repo.url}\r\n`;
+    data += `tags:\r\n`;
+    if (repo.tags) repo.tags.forEach(tag => {
+      data += ` - ${tag}\r\n`;
+    });
+    data += `description: ${repo.description}\r\n`;
+    data += '---\r\n';
+    data += repo.second_object.text;
+    fs.writeFile(`${dirName}/${repo.name}.md`, data, (error) => {
+      console.log('error while writing a file', error);
+    })
+  }
+}
+
 function getRepositoryInfo(graphql) {
   return Promise.all(repoList.map(repo => graphql(queries.getRepostoryInfo, repo).then(result => {
     if (result.errors) {
       console.error(result.errors[0].message);
     }
     const { repository } = result.data.github;
-    const contributors = getRepoContributors(repository);
+    const contributors = getRepoContributors(repository);   
+    overridePlugins(repository, contributors);
     return {
       ...repository,
       contributors 

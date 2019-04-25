@@ -69,6 +69,12 @@
         font-size: $font-size-default;
         color: $color-darker-grey;
       }
+
+      code {
+        font-size: $font-size-default;
+        color: $color-lighter-black;
+        white-space: pre-line;
+      }
     }
 
     .plugin-detail {
