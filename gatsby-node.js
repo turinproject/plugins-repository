@@ -103,7 +103,7 @@ function getRepositoryInfo(graphql) {
     }
     const { repository } = result.data.github;
     const contributors = getRepoContributors(repository);   
-    overridePlugins(repository, contributors);
+    overridePlugins(repository);
     return {
       ...repository,
       contributors 

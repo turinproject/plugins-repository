@@ -1,15 +1,12 @@
 require('dotenv').config();
 
-// const fs = require(`fs`);
 const urljoin = require('url-join');
-const fetch = require('node-fetch');
-const { createHttpLink } = require('apollo-link-http');
+// const fetch = require('node-fetch');
+// const { createHttpLink } = require('apollo-link-http');
 
-// const { buildClientSchema } = require(`graphql`);
 const path = require('path');
 
 const config = require('./data/SiteConfig');
-// const plugins = require('./data/PluginsList');
 
 const regexExcludeRobots = /^(?!\/(dev-404-page|404|offline-plugin-app-shell-fallback|tags|categories)).*$/;
 
@@ -37,13 +34,6 @@ module.exports = {
         name: "plugins",
         path: `${__dirname}/content/plugins/`
       }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'queries',
-        path: `${__dirname}/src/queries/`,
-      },
     },
     {
       resolve: "gatsby-transformer-remark",
@@ -129,15 +119,11 @@ module.exports = {
       options: {
         typeName: "GitHub",
         fieldName: "github",
-        createLink: () => (
-          createHttpLink({
-            uri: `${process.env.GATSBY_GITHUB_GRAPHQL_URL}`,
-            headers: {
-              Authorization: `bearer ${process.env.GATSBY_GITHUB_TOKEN}`,
-            },
-            fetch,
-          })
-        ),
+        url: "https://api.github.com/graphql",
+        headers: {
+          Authorization: `bearer ${process.env.GATSBY_GITHUB_TOKEN}`,
+        },
+        fetchOptions: {},
       },
     },
     "gatsby-plugin-offline",
