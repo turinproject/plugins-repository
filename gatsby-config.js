@@ -102,7 +102,14 @@ module.exports = {
         short_name: config.siteTitleShort,
         description: config.siteDescription,
         start_url: config.pathPrefix,
-        display: "minimal-ui"
+        display: "minimal-ui",
+        icons: [
+          {
+            src: "/assets/img/logos/default.png",
+            sizes: "368x368",
+            type: "image/png"
+          }
+        ]
       }
     },
     {
