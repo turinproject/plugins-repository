@@ -24,7 +24,7 @@ export default class CategoryTemplate extends React.Component {
               href={`${config.siteUrl}/categories/${category}`}
             />
           </Helmet>
-          <PluginListing category={category} pluginEdges={pluginEdges} />
+          <PluginListing category={category} pluginEdges={pluginEdges} repositories={this.props.pageContext && this.props.pageContext.repositories} />
         </div>
       </Layout>
     );
@@ -51,6 +51,7 @@ export const pageQuery = graphql`
             logo
             date
             category
+            url
           }
         }
       }

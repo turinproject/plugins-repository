@@ -18,28 +18,31 @@ export default class PluginTemplate extends React.Component {
   }
 
   renderTags(tags) {
-    return tags.map((tag, index) => (
+    return tags && tags.map((tag, index) => (
       <Link key={index} to={`tags/${tag}`}><div>{tag}</div></Link>
     ))
   }
 
   renderContributors(contributors) {
+    if (!contributors || !contributors.length) return;
     return contributors.map((contributor, index) => (
-      <a href={`https://github.com/${contributor}`} key={index}>
+      <a href={contributor.url} key={index}>
         <img
-          src={config.defaultAvatar}
           alt="avatar"
           className="avatar"
+          src={contributor.avatarUrl}
+          onError={e => {e.target.src = config.defaultAvatar}}
         />
-        <span>{contributor}</span>
+        <span>{contributor.name}</span>
       </a>
-    ))
+    ));
   }
 
   render() {
-    const { slug } = this.props.pageContext;
+    const { slug, repositories } = this.props.pageContext;
     const pluginNode = this.props.data.markdownRemark;
     const plugin = pluginNode.frontmatter;
+    const repository = repositories.find(item => item.url === plugin.url);
 
     // Always set the logo here to the category image
     const logo = `/assets/img/logos/${plugin.category}.png`;
@@ -68,7 +71,9 @@ export default class PluginTemplate extends React.Component {
                 onError={e => {e.target.src = config.siteLogo}}
               />
               <div className="plugin-info">
-                <p><span>{Helpers.getCategoryName(plugin.category)}</span></p>
+                <Link to={`categories/${plugin.category}`}>
+                  <p><span>{Helpers.getCategoryName(plugin.category)}</span></p>
+                </Link>
                 <h2>{plugin.title}</h2>
               </div>
             </Cell>
@@ -90,12 +95,12 @@ export default class PluginTemplate extends React.Component {
 
                 <div className="detail-info">
                   <span>Version:</span>
-                  <label>1.0.0</label>
+                  <label>{plugin.versions}</label>
                 </div>
 
                 <div className="detail-info">
                   <span>Last updated:</span>
-                  <label>{moment(pluginNode.fields.date).format(config.dateFormat)}</label>
+                  <label>{moment(repository && repository.updatedAt).format(config.dateFormat)}</label>
                 </div>
 
                 <div className="detail-info">
@@ -105,7 +110,7 @@ export default class PluginTemplate extends React.Component {
 
                 <div className="contributors">
                   <h3>Contributors</h3>
-                  {this.renderContributors(plugin.contributors)}
+                  {repository && repository.contributors && this.renderContributors(repository.contributors)}
                 </div>
               </Cell>
             </Grid>
@@ -127,7 +132,7 @@ export const pageQuery = graphql`
         date
         category
         tags
-        contributors
+        versions
       }
       fields {
         slug

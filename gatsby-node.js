@@ -1,9 +1,14 @@
 const path = require("path");
+const fs = require("file-system");
 const _ = require("lodash");
 const moment = require("moment");
+
+const queries = require("./src/queries");
 const siteConfig = require("./data/SiteConfig");
+const repoList = require("./data/plugins/PluginsList");
 
 const pluginNodes = [];
+let repositories = [];
 
 function addSiblingNodes(createNodeField) {
   pluginNodes.sort(
@@ -45,6 +50,65 @@ function addSiblingNodes(createNodeField) {
       value: prevNode.fields.slug
     });
   }
+}
+
+function getRepoContributors(repository) {
+  let contributors = [];
+  const { edges } = repository.object.history;
+  edges.forEach(edge => {
+    if (!_.find(contributors, edge.node.committer)) {
+      const { user } = edge.node.committer;
+      contributors.push({
+        ...edge.node.committer,
+        url: user ? user.url : ''
+      });
+    }
+  });
+  return contributors;
+}
+
+function overridePlugins(repo) {
+  const ownerName = repo.owner.login;
+  const dirName = `./content/plugins/${ownerName.toLowerCase()}`;
+  let files = [];
+  if (!fs.existsSync(dirName)) {
+    fs.mkdirSync(dirName);
+  } else {
+    files = fs.readdirSync(dirName);
+  }
+  if (!files.length || !files.includes(`${repo.name}.md`)) {
+    let data = '---\r\n';
+    data += `title: ${repo.title ? repo.title : repo.name}\r\n`;
+    data += `date: \r\n`;
+    data += `slug: ${repo.name}\r\n`;
+    data += `category: ${repo.category ? repo.category : 'other'}\r\n`;
+    data += `url: ${repo.url}\r\n`;
+    data += `tags:\r\n`;
+    if (repo.tags) repo.tags.forEach(tag => {
+      data += ` - ${tag}\r\n`;
+    });
+    data += `description: ${repo.description}\r\n`;
+    data += '---\r\n';
+    data += repo.second_object.text;
+    fs.writeFile(`${dirName}/${repo.name}.md`, data, (error) => {
+      console.log('error while writing a file', error);
+    })
+  }
+}
+
+function getRepositoryInfo(graphql) {
+  return Promise.all(repoList.map(repo => graphql(queries.getRepostoryInfo, repo).then(result => {
+    if (result.errors) {
+      console.error(result.errors[0].message);
+    }
+    const { repository } = result.data.github;
+    const contributors = getRepoContributors(repository);   
+    overridePlugins(repository);
+    return {
+      ...repository,
+      contributors 
+    };
+  })))
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -94,39 +158,36 @@ exports.setFieldsOnGraphQLNodeType = ({ type, actions }) => {
   }
 };
 
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage, deletePage } = actions;
+  const oldPage = Object.assign({}, page)
+
+  if (page.path === '/') {
+    deletePage(oldPage)
+    createPage({
+      ...page,
+      context: {
+        repositories
+      }
+    })
+  }
+}
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  return new Promise((resolve, reject) => {
+  return getRepositoryInfo(graphql).then(res => new Promise((resolve, reject) => {
     const pluginPage = path.resolve("src/templates/plugin.jsx");
     const tagPage = path.resolve("src/templates/tag.jsx");
     const categoryPage = path.resolve("src/templates/category.jsx");
+    repositories = res;
     resolve(
-      graphql(
-        `
-          {
-            allMarkdownRemark {
-              edges {
-                node {
-                  frontmatter {
-                    tags
-                    category
-                  }
-                  fields {
-                    slug
-                  }
-                }
-              }
-            }
-          }
-        `
-      ).then(result => {
+      graphql(queries.getPluginTagsFromMarkdown).then(result => {
         if (result.errors) {
           /* eslint no-console: "off" */
-          console.log(result.errors);
+          console.error(result.errors);
           reject(result.errors);
         }
-
         const tagSet = new Set();
         // const categorySet = new Set();
         result.data.allMarkdownRemark.edges.forEach(edge => {
@@ -144,7 +205,8 @@ exports.createPages = ({ graphql, actions }) => {
             path: edge.node.fields.slug,
             component: pluginPage,
             context: {
-              slug: edge.node.fields.slug
+              slug: edge.node.fields.slug,
+              repositories: res
             }
           });
         });
@@ -155,7 +217,8 @@ exports.createPages = ({ graphql, actions }) => {
             path: `/tags/${_.kebabCase(tag)}/`,
             component: tagPage,
             context: {
-              tag
+              tag,
+              repositories: res
             }
           });
         });
@@ -168,11 +231,12 @@ exports.createPages = ({ graphql, actions }) => {
             path: `/categories/${_.kebabCase(category.id)}/`,
             component: categoryPage,
             context: {
-              category: category.id
+              category: category.id,
+              repositories: res
             }
           });
         });
       })
     );
-  });
+  }));
 };

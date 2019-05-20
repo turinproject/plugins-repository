@@ -8,7 +8,7 @@ import config from 'data/SiteConfig';
 
 export default class TagTemplate extends React.Component {
   render() {
-    const { tag } = this.props.pageContext;
+    const { tag, repositories } = this.props.pageContext;
     const pluginEdges = this.props.data.allMarkdownRemark.edges;
 
     return (
@@ -21,7 +21,7 @@ export default class TagTemplate extends React.Component {
             <title>{`Plugins tagged as "${tag}" | ${config.siteTitle}`}</title>
             <link rel="canonical" href={`${config.siteUrl}/tags/${tag}`} />
           </Helmet>
-          <PluginListing pluginEdges={pluginEdges} />
+          <PluginListing pluginEdges={pluginEdges} repositories={repositories} />
         </div>
       </Layout>
     );
@@ -48,6 +48,7 @@ export const pageQuery = graphql`
             logo
             date
             category
+            url
           }
         }
       }

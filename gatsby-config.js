@@ -1,14 +1,12 @@
 require('dotenv').config();
 
-const fs = require(`fs`);
 const urljoin = require('url-join');
-const fetch = require('node-fetch');
-const { createHttpLink } = require('apollo-link-http');
-const { buildClientSchema } = require(`graphql`);
+// const fetch = require('node-fetch');
+// const { createHttpLink } = require('apollo-link-http');
+
 const path = require('path');
 
 const config = require('./data/SiteConfig');
-// const plugins = require('./data/PluginsList');
 
 const regexExcludeRobots = /^(?!\/(dev-404-page|404|offline-plugin-app-shell-fallback|tags|categories)).*$/;
 
@@ -36,13 +34,6 @@ module.exports = {
         name: "plugins",
         path: `${__dirname}/content/plugins/`
       }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'queries',
-        path: `${__dirname}/src/queries/`,
-      },
     },
     {
       resolve: "gatsby-transformer-remark",
@@ -114,7 +105,7 @@ module.exports = {
         display: "minimal-ui",
         icons: [
           {
-            src: "/assets/img/logos/default.png",
+            src: "/static/assets/img/logos/default.png",
             sizes: "368x368",
             type: "image/png"
           }
@@ -128,20 +119,27 @@ module.exports = {
       options: {
         typeName: "GitHub",
         fieldName: "github",
-        createLink: () =>
-          createHttpLink({
-            uri: `${process.env.GATSBY_GITHUB_GRAPHQL_URL}`,
-            headers: {
-              Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
-            },
-            fetch,
-          }),
-        createSchema: async () => {
-          const json = JSON.parse(fs.readFileSync(`${__dirname}/github.json`))
-          return buildClientSchema(json.data)
+        url: "https://api.github.com/graphql",
+        headers: {
+          Authorization: `bearer ${process.env.GATSBY_GITHUB_TOKEN}`,
+        },
+        fetchOptions: {},
+      },
+    },
+    "gatsby-plugin-offline",
+    {
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      options: {
+        fields: [`title`, `tags`, `category`, `description`],
+        resolvers: {
+          MarkdownRemark: {
+            title: node => node.frontmatter.title,
+            tags: node => node.frontmatter.tags,
+            category: node => node.frontmatter.category,
+            description: node => node.frontmatter.description
+          },
         },
       },
     },
-    "gatsby-plugin-offline"
   ]
 };
