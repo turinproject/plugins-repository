@@ -11,9 +11,6 @@ This framework was initially built as the front end for the (Avogadro2 Plugin Re
 * `npm run build` For production build.
 
 
-
-Deploying to master will trigger `yarn run build` on netlify
-
 # Set Up
 
 * Github Setup
@@ -23,6 +20,7 @@ Deploying to master will trigger `yarn run build` on netlify
 # Netlify Setup
 
 * Enable (Git Gateway)[https://www.netlify.com/docs/git-gateway/]
+* Adding ENV variables
 
 # Commands:
 
