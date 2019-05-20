@@ -38,5 +38,10 @@ module.exports = [
     name: "molecules",
     owner: "OpenChemistry",
     url: "https://github.com/openchemistry/molecules"
+  },
+  {
+    name: "netlify-cms",
+    owner: "netlify",
+    url: "https://github.com/netlify/netlify-cms"
   }
 ];

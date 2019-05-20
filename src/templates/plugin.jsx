@@ -110,7 +110,7 @@ export default class PluginTemplate extends React.Component {
 
                 <div className="contributors">
                   <h3>Contributors</h3>
-                  {this.renderContributors(repository.contributors)}
+                  {repository && repository.contributors && this.renderContributors(repository.contributors)}
                 </div>
               </Cell>
             </Grid>
