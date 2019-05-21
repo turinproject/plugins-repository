@@ -23,8 +23,16 @@ export default class PluginTemplate extends React.Component {
     ))
   }
 
-  renderContributors(contributors) {
-    if (!contributors || !contributors.length) return;
+  renderContributors(repository) {
+    let { contributors, owner } = repository;
+    const temp = contributors.filter(item => item.name !== 'GitHub');
+    if (!temp || !temp.length) {
+      contributors = [];
+      contributors.push({
+        name: owner.login,
+        avatarUrl: owner.avatarUrl
+      });
+    };
     return contributors.map((contributor, index) => (
       <a href={contributor.url} key={index}>
         <img
@@ -110,7 +118,7 @@ export default class PluginTemplate extends React.Component {
 
                 <div className="contributors">
                   <h3>Contributors</h3>
-                  {repository && repository.contributors && this.renderContributors(repository.contributors)}
+                  {repository && this.renderContributors(repository)}
                 </div>
               </Cell>
             </Grid>
