@@ -147,6 +147,9 @@
             margin-left: 1rem;
             color: $color-dark-blue;
             text-decoration: underline;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
           }
         }
       }
