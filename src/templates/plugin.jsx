@@ -25,8 +25,8 @@ export default class PluginTemplate extends React.Component {
 
   renderContributors(repository) {
     let { contributors, owner } = repository;
-    const temp = contributors.filter(item => item.name !== 'GitHub');
-    if (!temp || !temp.length) {
+    contributors = contributors.filter(item => item.name !== 'GitHub');
+    if (!contributors || !contributors.length) {
       contributors = [];
       contributors.push({
         name: owner.login,

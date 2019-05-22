@@ -56,6 +56,18 @@ exports.getRepostoryInfo = `
             text
           }
         }
+        releases(first: 50, orderBy: {field: CREATED_AT, direction: DESC}) {
+          totalCount
+          nodes {
+            releaseAssets(first: 10) {
+              nodes {
+                name
+                downloadCount
+                createdAt
+              }
+            }
+          }
+        }
       }
     }
   }
