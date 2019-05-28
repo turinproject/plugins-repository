@@ -38,8 +38,7 @@ const Navbar = props => (
             type="text"
             placeholder="Search plugins ..."
             value={props.searchQuery}
-            onChange={props.onChange}
-            onKeyDown={(e) => props.onSearch(e, data.siteSearchIndex.index)}
+            onChange={e => props.onChange(e, data.siteSearchIndex.index)}
           />
         </div>
       </div>

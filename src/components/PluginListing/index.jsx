@@ -16,7 +16,6 @@ class PluginListing extends React.Component {
 
     this.getInitialPluginList = this.getInitialPluginList.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleSearch = this.handleSearch.bind(this);
     this.getOrCreateIndex = this.getOrCreateIndex.bind(this);
   }
 
@@ -60,13 +59,9 @@ class PluginListing extends React.Component {
     return this.index ? this.index : Index.load(searchIndex);
   }
 
-  handleChange(e) {
-    this.setState({ searchQuery: e.target.value });
-  }
-
-  handleSearch(e, searchIndex) {
-    const { searchQuery } = this.state;
-    if (e.keyCode !== 13) return;
+  handleChange(e, searchIndex) {
+    const searchQuery = e.target.value;
+    this.setState({ searchQuery });
     const pluginList = this.getInitialPluginList();
     if (!searchQuery) {
       this.setState({ pluginList });
@@ -89,7 +84,6 @@ class PluginListing extends React.Component {
           category={category}
           searchQuery={searchQuery}
           onChange={this.handleChange}
-          onSearch={this.handleSearch}
         />
         {repositories.length && (
           <div className="plugin-container md-grid mobile-fix">
