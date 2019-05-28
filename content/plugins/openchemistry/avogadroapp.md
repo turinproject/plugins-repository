@@ -58,9 +58,9 @@ documentation. Our API is [documented using Doxygen][Doxygen] with updated
 documentation generated nightly. We have several [mailing lists][MailingLists]
 to coordinate development and to provide support.
 
-  [Avogadro2Logo]: http://openchemistry.org/files/logos/avogadro2.png "Avogadro2"
-  [OpenChemistry]: http://openchemistry.org/ "Open Chemistry Project"
-  [OpenChemistryLogo]: http://openchemistry.org/files/logos/openchem128.png "Open Chemistry"
+  [Avogadro2Logo]: https://openchemistry.org/files/logos/avogadro2.png "Avogadro2"
+  [OpenChemistry]: https://openchemistry.org/ "Open Chemistry Project"
+  [OpenChemistryLogo]: https://openchemistry.org/files/logos/openchem128.png "Open Chemistry"
   [Kitware]: http://kitware.com/ "Kitware, Inc."
   [KitwareLogo]: http://www.kitware.com/img/small_logo_over.png "Kitware"
   [Avogadro1]: http://avogadro.openmolecules.net/ "Avogadro 1"
@@ -69,4 +69,4 @@ to coordinate development and to provide support.
   [Development]: http://wiki.openchemistry.org/Development "Development guide"
   [Wiki]: http://wiki.openchemistry.org/ "Open Chemistry wiki"
   [Doxygen]: http://doc.openchemistry.org/avogadrolibs/api/ "API documentation"
-  [MailingLists]: http://openchemistry.org/mailing-lists "Mailing Lists"
+  [MailingLists]: https://openchemistry.org/mailing-lists "Mailing Lists"
