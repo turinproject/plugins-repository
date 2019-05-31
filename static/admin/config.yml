@@ -1,0 +1,17 @@
+backend:
+  name: github
+  repo: superWsac/HOC-React
+
+media_folder: static/assets
+public_folder: assets
+
+collections:
+  - name: plugins
+    label: "Plugins"
+    folder: "src"
+    create: true
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Repository Name", name: "repoName", widget: "string"}
+      - {label: "Github Owner", name: "owner", widget: "string"}
+      - {label: "Repository URL", name: "repoUrl", widget: "string"}
