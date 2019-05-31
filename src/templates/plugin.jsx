@@ -93,7 +93,9 @@ export default class PluginTemplate extends React.Component {
               </Cell>
 
               <Cell size={4} tabletSize={12} className="plugin-detail">
-                <button type="button" className="default-button">Get Plugin</button>
+                <button type="button" className="default-button">
+                  <a href={plugin.url}>Get Plugin</a>
+                </button>
                 <div className="detail-info">
                   <a href={plugin.url}>
                     <FontIcon iconClassName="fa fa-github" />
