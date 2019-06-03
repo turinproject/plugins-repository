@@ -7,10 +7,24 @@ import Helpers from 'utils/Helpers';
 import config from 'data/SiteConfig';
 
 class PluginPreview extends Component {
+  getDownloadCount({ releases }) {
+    const { nodes } = releases;
+    if (nodes && !nodes.length) return 'Pre-release';
+    let count = 0;
+    nodes.forEach(node => {
+      const { releaseAssets } = node;
+      return releaseAssets && releaseAssets.nodes && releaseAssets.nodes.forEach(item => {
+        count += item.downloadCount;
+      });
+    });
+    return count;
+  }
+
   render() {
     const { pluginInfo, repositories } = this.props;
     const repository = repositories && repositories.find(item => item.url.toLowerCase() === pluginInfo.url.toLowerCase());
     const logo = pluginInfo.logo ? pluginInfo.logo : `/assets/img/logos/${pluginInfo.category}.png`;
+    const downloadCount = this.getDownloadCount(repository); 
     return (
       <div key={pluginInfo.path} id="cardItem" className="md-grid md-cell md-cell--6">
         <div className="card-content">
@@ -50,7 +64,7 @@ class PluginPreview extends Component {
           <div className="post-rating">
             <div className="download">
               <FontIcon iconClassName="fa fa-cloud-download" />
-              689,514
+              {downloadCount}
             </div>
             <div className="stars">
               <div className="star-icon">

@@ -10,7 +10,7 @@ import Layout from 'layout';
 class Page extends Component {
   render() {
     return (
-      <Layout location={this.props.location} title={this.props.title}>
+      <Layout location={this.props.location}>
         <div className="submit-plugin-container">
           <Helmet>
             <title>{this.props.title}</title>

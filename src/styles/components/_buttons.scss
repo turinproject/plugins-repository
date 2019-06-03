@@ -26,6 +26,10 @@
   outline: none;
   cursor: pointer;
 
+  a {
+    color: $color-dark-grey;
+  }
+
   &:active {
     box-shadow: 0 1px 3px 0 $color-grey;
   }

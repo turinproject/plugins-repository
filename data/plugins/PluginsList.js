@@ -38,5 +38,10 @@ module.exports = [
     name: "molecules",
     owner: "OpenChemistry",
     url: "https://github.com/openchemistry/molecules"
+  },
+  {
+    name: "avogadroapp",
+    owner: "OpenChemistry",
+    url: "https://github.com/OpenChemistry/avogadroapp"
   }
 ];
