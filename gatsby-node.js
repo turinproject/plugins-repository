@@ -5,52 +5,10 @@ const moment = require("moment");
 
 const queries = require("./src/queries");
 const siteConfig = require("./data/SiteConfig");
-const repoList = require("./data/plugins/PluginsList");
+// const repoList = require("./data/plugins/PluginsList");
 
 const pluginNodes = [];
 let repositories = [];
-
-function addSiblingNodes(createNodeField) {
-  pluginNodes.sort(
-    ({ frontmatter: { date: date1 } }, { frontmatter: { date: date2 } }) => {
-      const dateA = moment(date1, siteConfig.dateFromFormat);
-      const dateB = moment(date2, siteConfig.dateFromFormat);
-
-      if (dateA.isBefore(dateB)) return 1;
-
-      if (dateB.isBefore(dateA)) return -1;
-
-      return 0;
-    }
-  );
-  for (let i = 0; i < pluginNodes.length; i += 1) {
-    const nextID = i + 1 < pluginNodes.length ? i + 1 : 0;
-    const prevID = i - 1 > 0 ? i - 1 : pluginNodes.length - 1;
-    const currNode = pluginNodes[i];
-    const nextNode = pluginNodes[nextID];
-    const prevNode = pluginNodes[prevID];
-    createNodeField({
-      node: currNode,
-      name: "nextTitle",
-      value: nextNode.frontmatter.title
-    });
-    createNodeField({
-      node: currNode,
-      name: "nextSlug",
-      value: nextNode.fields.slug
-    });
-    createNodeField({
-      node: currNode,
-      name: "prevTitle",
-      value: prevNode.frontmatter.title
-    });
-    createNodeField({
-      node: currNode,
-      name: "prevSlug",
-      value: prevNode.fields.slug
-    });
-  }
-}
 
 function getRepoContributors(repository) {
   let contributors = [];
@@ -96,8 +54,28 @@ function overridePlugins(repo) {
   }
 }
 
+function grabSubmittedPlugins() {
+  let pluginList = [];
+  const dirPath = siteConfig.submittedPluginDirPath;
+  const files = fs.readdirSync(dirPath);
+  files.forEach((filename) => {
+    const mdContent = fs.readFileSync(`${dirPath}/${filename}`, 'utf8');
+    const [, titleLine, ownerLine, urlLine] = mdContent.split('\n');
+    const title = titleLine.slice(7);
+    const owner = ownerLine.slice(7);
+    const url = urlLine.slice(6, -1);
+    pluginList.push({
+      name: title,
+      owner,
+      url
+    });
+  });
+  return pluginList;
+}
+
 function getRepositoryInfo(graphql) {
-  return Promise.all(repoList.map(repo => graphql(queries.getRepostoryInfo, repo).then(result => {
+  const pluginList = grabSubmittedPlugins();
+  return Promise.all(pluginList.map(repo => graphql(queries.getRepostoryInfo, repo).then(result => {
     if (result.errors) {
       console.error(result.errors[0].message);
     }
@@ -147,14 +125,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     }
     createNodeField({ node, name: "slug", value: slug });
     pluginNodes.push(node);
-  }
-};
-
-exports.setFieldsOnGraphQLNodeType = ({ type, actions }) => {
-  const { name } = type;
-  const { createNodeField } = actions;
-  if (name === "MarkdownRemark") {
-    addSiblingNodes(createNodeField);
   }
 };
 
