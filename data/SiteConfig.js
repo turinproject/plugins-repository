@@ -8,6 +8,7 @@ module.exports = {
   pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/gatsby-material-starter/.
   siteDescription: "A plugin repository for Avogadro 2.", // Website description used for meta description tag.
   submittedPluginDirPath: "data/plugins/submitted",
+  pluginDirPath: "./content/plugins",
   categories: [
     {
       id: 'plugin-type',

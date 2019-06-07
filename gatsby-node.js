@@ -5,7 +5,7 @@ const moment = require("moment");
 
 const queries = require("./src/queries");
 const siteConfig = require("./data/SiteConfig");
-// const repoList = require("./data/plugins/PluginsList");
+let repoList = require("./data/plugins/PluginsList");
 
 const pluginNodes = [];
 let repositories = [];
@@ -27,7 +27,7 @@ function getRepoContributors(repository) {
 
 function overridePlugins(repo) {
   const ownerName = repo.owner.login;
-  const dirName = `./content/plugins/${ownerName.toLowerCase()}`;
+  const dirName = `${siteConfig.pluginDirPath}/${ownerName.toLowerCase()}`;
   let files = [];
   if (!fs.existsSync(dirName)) {
     fs.mkdirSync(dirName);
@@ -54,23 +54,43 @@ function overridePlugins(repo) {
   }
 }
 
-function grabSubmittedPlugins() {
-  let pluginList = [];
-  const dirPath = siteConfig.submittedPluginDirPath;
-  const files = fs.readdirSync(dirPath);
-  files.forEach((filename) => {
-    const mdContent = fs.readFileSync(`${dirPath}/${filename}`, 'utf8');
-    const [, titleLine, ownerLine, urlLine] = mdContent.split('\n');
-    const title = titleLine.slice(7);
-    const owner = ownerLine.slice(7);
-    const url = urlLine.slice(6, -1);
-    pluginList.push({
-      name: title,
-      owner,
-      url
+function emptyDirectory(dirPath) {
+  if(fs.existsSync(dirPath) ) {
+    const files = fs.readdirSync(dirPath);
+    files.forEach((file) => {
+      const curPath = path.join(dirPath, file);
+      if(fs.lstatSync(curPath).isDirectory()) { // recurse
+        emptyDirectory(curPath);
+      } else { // delete file
+        fs.unlinkSync(curPath);
+      }
     });
-  });
-  return pluginList;
+    fs.rmdirSync(dirPath);
+  }
+}
+
+function grabSubmittedPlugins() {
+  const dirPath = siteConfig.submittedPluginDirPath;
+  if (fs.existsSync(dirPath)) {
+    const files = fs.readdirSync(dirPath);
+    files.forEach((filename) => {
+      const mdContent = fs.readFileSync(`${dirPath}/${filename}`, 'utf8');
+      const [, titleLine, ownerLine, urlLine] = mdContent.split('\n');
+      const title = titleLine.slice(7);
+      const owner = ownerLine.slice(7);
+      const url = urlLine.slice(6, -1);
+      if (!repoList.find(repo => repo.url === url)) {
+        repoList.push({
+          name: title,
+          owner,
+          url
+        });
+      }
+      fs.writeFileSync('./data/plugins/PluginsList.js', `module.exports = ${JSON.stringify(repoList)};`, 'utf-8');
+      emptyDirectory(dirPath);
+    });
+  }
+  return repoList;
 }
 
 function getRepositoryInfo(graphql) {
@@ -145,6 +165,7 @@ exports.onCreatePage = ({ page, actions }) => {
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
+  // emptyDirectory(siteConfig.pluginDirPath);
 
   return getRepositoryInfo(graphql).then(res => new Promise((resolve, reject) => {
     const pluginPage = path.resolve("src/templates/plugin.jsx");
