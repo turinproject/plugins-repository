@@ -1,1 +1,1 @@
-module.exports = [{"name":"avo-rdkit","owner":"ghutchis","url":"https://github.com/ghutchis/avo-rdkit"},{"name":"XOTV","owner":"superWsac","url":"ttps://github.com/superWsac/XOT"}];
+module.exports = [{"name":"avo-rdkit","owner":"ghutchis","url":"https://github.com/ghutchis/avo-rdkit"}];

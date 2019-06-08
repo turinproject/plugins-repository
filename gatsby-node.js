@@ -37,7 +37,7 @@ function overridePlugins(repo) {
   if (!files.length || !files.includes(`${repo.name}.md`)) {
     let data = '---\r\n';
     data += `title: ${repo.title ? repo.title : repo.name}\r\n`;
-    data += `date: \r\n`;
+    data += `date: '${moment().format(siteConfig.dateFromFormat)}'\r\n`;
     data += `slug: ${repo.name}\r\n`;
     data += `category: ${repo.category ? repo.category : 'other'}\r\n`;
     data += `url: ${repo.url}\r\n`;
@@ -46,6 +46,7 @@ function overridePlugins(repo) {
       data += ` - ${tag}\r\n`;
     });
     data += `description: ${repo.description}\r\n`;
+    data += `versions: '1.0.0'\r\n`;
     data += '---\r\n';
     data += repo.second_object.text;
     fs.writeFile(`${dirName}/${repo.name}.md`, data, (error) => {
@@ -166,6 +167,7 @@ exports.onCreatePage = ({ page, actions }) => {
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   // emptyDirectory(siteConfig.pluginDirPath);
+  // fs.mkdirSync(siteConfig.pluginDirPath);
 
   return getRepositoryInfo(graphql).then(res => new Promise((resolve, reject) => {
     const pluginPage = path.resolve("src/templates/plugin.jsx");
