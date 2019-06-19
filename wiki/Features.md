@@ -1,6 +1,6 @@
  This project use uses markdown, static site generators, GraphQL and git to create a statically served CMS for software application plugins.
 
-## Why ##
+# Approach
 
 This application was built using [GatsbyJS](https://www.gatsbyjs.org/), a React based markdown static site generator.
 
