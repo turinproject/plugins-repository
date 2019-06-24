@@ -1,0 +1,16 @@
+backend:
+  name: github
+  repo: turinproject/plugins-repository
+
+media_folder: static/assets
+public_folder: assets
+
+collections:
+  - name: plugins
+    label: "Plugins"
+    folder: "data/plugins/submitted"
+    create: true
+    fields:
+      - {label: "Repository Name", name: "title", widget: "string"}
+      - {label: "Repository Owner", name: "owner", widget: "string"}
+      - {label: "Repository URL", name: "url", widget: "string"}

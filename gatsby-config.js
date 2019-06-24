@@ -21,6 +21,19 @@ module.exports = {
     "gatsby-plugin-sass",
     "gatsby-plugin-catch-links",
     "gatsby-plugin-netlify-cms",
+    // {
+    //     resolve: `gatsby-plugin-netlify-cms`,
+    //     options: {
+    //       publicPath: `submit`,
+    //       htmlTitle: `Content Manager`,
+    //     },
+    // },
+    // {
+    //   resolve: `gatsby-plugin-netlify-cms-paths`,
+    //   options: {
+    //     cmsConfig: `/static/submit/config.yml`
+    //   }
+    // },
     {
       resolve: "gatsby-source-filesystem",
       options: {
