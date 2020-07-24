@@ -27,7 +27,7 @@
     "gatsby-source-graphql": "^2.0.18",
     "gatsby-transformer-remark": "2.1.11",
     "immutable": "^3.8.1",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.19",
     "moment": "^2.22.2",
     "netlify-cms": "^2.9.1",
     "node-fetch": "^2.6.0",
