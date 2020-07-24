@@ -1,13 +1,12 @@
 ---
-title: Avogadro RDKit Scripts
-date: '2018-08-03'
-slug: ghutchis-avo-rdkit
-category: commands
-versions: '1.0.0'
-url: 'https://github.com/ghutchis/avo-rdkit'
+title: avo-rdkit
+date: '2019-06-08'
+slug: avo-rdkit
+category: other
+url: https://github.com/ghutchis/avo-rdkit
 tags:
-  - chemistry
-  - avogadro
-description: "RDKit scripts for Avogadro 2"
+description: RDKit scripts for Avogadro 2
+versions: '1.0.0'
 ---
+# avo-rdkit
 RDKit scripts for Avogadro 2

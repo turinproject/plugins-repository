@@ -23,6 +23,7 @@ class PluginPreview extends Component {
   render() {
     const { pluginInfo, repositories } = this.props;
     const repository = repositories && repositories.find(item => item.url.toLowerCase() === pluginInfo.url.toLowerCase());
+    if (!repository) return null;
     const logo = pluginInfo.logo ? pluginInfo.logo : `/assets/img/logos/${pluginInfo.category}.png`;
     const downloadCount = this.getDownloadCount(repository); 
     return (

@@ -137,7 +137,6 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        logo
         url
         date
         category

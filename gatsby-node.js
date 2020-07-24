@@ -5,52 +5,10 @@ const moment = require("moment");
 
 const queries = require("./src/queries");
 const siteConfig = require("./data/SiteConfig");
-const repoList = require("./data/plugins/PluginsList");
+let repoList = require("./data/plugins/PluginsList");
 
 const pluginNodes = [];
 let repositories = [];
-
-function addSiblingNodes(createNodeField) {
-  pluginNodes.sort(
-    ({ frontmatter: { date: date1 } }, { frontmatter: { date: date2 } }) => {
-      const dateA = moment(date1, siteConfig.dateFromFormat);
-      const dateB = moment(date2, siteConfig.dateFromFormat);
-
-      if (dateA.isBefore(dateB)) return 1;
-
-      if (dateB.isBefore(dateA)) return -1;
-
-      return 0;
-    }
-  );
-  for (let i = 0; i < pluginNodes.length; i += 1) {
-    const nextID = i + 1 < pluginNodes.length ? i + 1 : 0;
-    const prevID = i - 1 > 0 ? i - 1 : pluginNodes.length - 1;
-    const currNode = pluginNodes[i];
-    const nextNode = pluginNodes[nextID];
-    const prevNode = pluginNodes[prevID];
-    createNodeField({
-      node: currNode,
-      name: "nextTitle",
-      value: nextNode.frontmatter.title
-    });
-    createNodeField({
-      node: currNode,
-      name: "nextSlug",
-      value: nextNode.fields.slug
-    });
-    createNodeField({
-      node: currNode,
-      name: "prevTitle",
-      value: prevNode.frontmatter.title
-    });
-    createNodeField({
-      node: currNode,
-      name: "prevSlug",
-      value: prevNode.fields.slug
-    });
-  }
-}
 
 function getRepoContributors(repository) {
   let contributors = [];
@@ -69,7 +27,7 @@ function getRepoContributors(repository) {
 
 function overridePlugins(repo) {
   const ownerName = repo.owner.login;
-  const dirName = `./content/plugins/${ownerName.toLowerCase()}`;
+  const dirName = `${siteConfig.pluginDirPath}/${ownerName.toLowerCase()}`;
   let files = [];
   if (!fs.existsSync(dirName)) {
     fs.mkdirSync(dirName);
@@ -79,7 +37,7 @@ function overridePlugins(repo) {
   if (!files.length || !files.includes(`${repo.name}.md`)) {
     let data = '---\r\n';
     data += `title: ${repo.title ? repo.title : repo.name}\r\n`;
-    data += `date: \r\n`;
+    data += `date: '${moment().format(siteConfig.dateFromFormat)}'\r\n`;
     data += `slug: ${repo.name}\r\n`;
     data += `category: ${repo.category ? repo.category : 'other'}\r\n`;
     data += `url: ${repo.url}\r\n`;
@@ -88,6 +46,7 @@ function overridePlugins(repo) {
       data += ` - ${tag}\r\n`;
     });
     data += `description: ${repo.description}\r\n`;
+    data += `versions: '1.0.0'\r\n`;
     data += '---\r\n';
     data += repo.second_object.text;
     fs.writeFile(`${dirName}/${repo.name}.md`, data, (error) => {
@@ -96,8 +55,48 @@ function overridePlugins(repo) {
   }
 }
 
+function emptyDirectory(dirPath) {
+  if(fs.existsSync(dirPath) ) {
+    const files = fs.readdirSync(dirPath);
+    files.forEach((file) => {
+      const curPath = path.join(dirPath, file);
+      if(fs.lstatSync(curPath).isDirectory()) { // recurse
+        emptyDirectory(curPath);
+      } else { // delete file
+        fs.unlinkSync(curPath);
+      }
+    });
+    fs.rmdirSync(dirPath);
+  }
+}
+
+function grabSubmittedPlugins() {
+  const dirPath = siteConfig.submittedPluginDirPath;
+  if (fs.existsSync(dirPath)) {
+    const files = fs.readdirSync(dirPath);
+    files.forEach((filename) => {
+      const mdContent = fs.readFileSync(`${dirPath}/${filename}`, 'utf8');
+      const [, titleLine, ownerLine, urlLine] = mdContent.split('\n');
+      const title = titleLine.slice(7);
+      const owner = ownerLine.slice(7);
+      const url = urlLine.slice(6, -1);
+      if (!repoList.find(repo => repo.url === url)) {
+        repoList.push({
+          name: title,
+          owner,
+          url
+        });
+      }
+      fs.writeFileSync('./data/plugins/PluginsList.js', `module.exports = ${JSON.stringify(repoList)};`, 'utf-8');
+      emptyDirectory(dirPath);
+    });
+  }
+  return repoList;
+}
+
 function getRepositoryInfo(graphql) {
-  return Promise.all(repoList.map(repo => graphql(queries.getRepostoryInfo, repo).then(result => {
+  const pluginList = grabSubmittedPlugins();
+  return Promise.all(pluginList.map(repo => graphql(queries.getRepostoryInfo, repo).then(result => {
     if (result.errors) {
       console.error(result.errors[0].message);
     }
@@ -150,14 +149,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 };
 
-exports.setFieldsOnGraphQLNodeType = ({ type, actions }) => {
-  const { name } = type;
-  const { createNodeField } = actions;
-  if (name === "MarkdownRemark") {
-    addSiblingNodes(createNodeField);
-  }
-};
-
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions;
   const oldPage = Object.assign({}, page)
@@ -175,6 +166,8 @@ exports.onCreatePage = ({ page, actions }) => {
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
+  // emptyDirectory(siteConfig.pluginDirPath);
+  // fs.mkdirSync(siteConfig.pluginDirPath);
 
   return getRepositoryInfo(graphql).then(res => new Promise((resolve, reject) => {
     const pluginPage = path.resolve("src/templates/plugin.jsx");
